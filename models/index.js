@@ -11,7 +11,7 @@ SubCategory.belongsTo(ParentCategory, {
     foreignKey: 'parent_category_id',
 });
 
-SubCategory.hasMany(Expenses, {
+SubCategory.hasMany(Expense, {
     foreignKey: 'sub_category_id',
 });
 
@@ -27,4 +27,4 @@ Expense.belongsTo(User, {
     foreignKey: 'user_id'
 });
 
-module.exports = { ParentCategory, SubCategory, Expenses, User };
+module.exports = { ParentCategory, SubCategory, Expense, User };
