@@ -1,3 +1,7 @@
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "/login.html"));
+
 const path = require('path');
 const express = require('express');
 
