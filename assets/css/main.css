@@ -1,0 +1,135 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    display: flex;
+    float: left;
+    justify-content: flex-end;
+    width: 100%;
+    height: 100px;
+    align-items: center;
+    /* background-color: rgb(116, 245, 116); */
+}
+
+button {
+    justify-content: space-around;
+    margin-right: 1rem;
+    width: 100px;
+    height: 30px;
+    border: none;
+    color: rgb(66, 149, 226);
+    background-color: rgba(236, 247, 141, 1);
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+}
+
+button:hover {
+    background-color: rgba(236, 247, 141, 0.8);
+}
+
+h1 {
+    display: flex;
+    width: 100%;
+    margin-left: 25px;
+    color: rgb(44, 42, 42);
+}
+
+.budget {
+    font-size: 330%;
+    top: 20%;
+    left: 14%;
+    position: absolute;
+}
+
+.budget-text {
+    font-size: 50%;
+    top: 100%;
+    left: 15%;
+    position: absolute;
+}
+
+section {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background: #649ff8;
+    overflow: hidden;
+}
+
+section .wave {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background: url(wave.png);
+    background-size: 1000px 100px;
+}
+
+section .wave.wave1 {
+    animation: animate 30s linear infinite;
+    z-index: 1000;
+    opacity: 1;
+    animation-delay: 0s;
+    bottom: 0;
+}
+
+section .wave.wave2 {
+    animation: animate2 15s linear infinite;
+    z-index: 999;
+    opacity: 0.5;
+    animation-delay: -5s;
+    bottom: 10px;
+}
+
+section .wave.wave3 {
+    animation: animate 30s linear infinite;
+    z-index: 998;
+    opacity: 0.2;
+    animation-delay: 2s;
+    bottom: 15;
+}
+
+section .wave.wave4 {
+    animation: animate2 5s linear infinite;
+    z-index: 997;
+    opacity: 0.7;
+    animation-delay: -5s;
+    bottom: 20px;
+}
+
+@keyframes animate {
+    0% {
+        background-position-x: 0;
+    }
+    100% {
+        background-position-x: 1000px;
+    }
+}
+
+@keyframes animate2 {
+    0% {
+        background-position-x: 0;
+    }
+    100% {
+        background-position-x: -1000px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .budget {
+        font-size: 300%;
+        top: 20%;
+        left: 10%;
+        position: absolute;
+    }
+    .budget-text {
+        font-size: 45%;
+        top: 100%;
+        left: 16%;
+        position: absolute;
+    }
+}
