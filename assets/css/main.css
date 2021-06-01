@@ -16,11 +16,12 @@ header {
 button {
     justify-content: space-around;
     margin-right: 1rem;
-    width: 100px;
+    width: 150px;
     height: 30px;
     border: none;
-    color: rgb(66, 149, 226);
-    background-color: rgba(236, 247, 141, 1);
+    color: #fff;
+    /* background-color: rgba(236, 247, 141, 1); */
+    background-color: black;
     border-radius: 50px;
     cursor: pointer;
     transition: all 0.3s ease 0s;
@@ -31,7 +32,6 @@ button:hover {
 }
 
 h1 {
-    display: flex;
     width: 100%;
     margin-left: 25px;
     color: rgb(44, 42, 42);
@@ -51,11 +51,104 @@ h1 {
     position: absolute;
 }
 
+.title {
+    font-size: 330%;
+    top: 5%;
+    left: 12%;
+    position: absolute;
+}
+
+
+/* login-form */
+
+.login-form {
+    width: 320px;
+    height: 320px;
+    background: rgb(44, 42, 42);
+    top: 25%;
+    left: 8%;
+    box-sizing: border-box;
+    position: absolute;
+    align-items: center;
+}
+
+.login-title {
+    top: 2%;
+    left: 35%;
+    position: absolute;
+}
+
+.login-text {
+    margin: 0;
+    padding: 0 0 20px;
+    font-size: 18px;
+    color: #fff;
+}
+
+form {
+    top: 20%;
+    left: 10%;
+    position: absolute;
+}
+
+form p {
+    color: #fff;
+}
+
+.login-form input {
+    width: 230px;
+    margin-bottom: 10px;
+}
+
+.login-form input[type="text"],
+input[type="password"] {
+    border: none;
+    border-bottom: 1px solid #fff;
+    background: transparent;
+    outline: none;
+    height: 30px;
+    color: #fff;
+    font-size: 15px;
+}
+
+.login-form input[type="submit"] {
+    border: none;
+    outline: none;
+    height: 25px;
+    background: #78ec7f;
+    font-size: 18px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+    color: rgb(44, 42, 42);
+}
+
+.login-form input[type="submit"]:hover {
+    cursor: pointer;
+    background: #9af1a0;
+    color: black;
+}
+
+form a {
+    top: 100%;
+    left: 1%;
+    position: absolute;
+    text-decoration: none;
+    color: white;
+}
+
+form a:hover {
+    color: #9af1a0;
+}
+
+
+/* Animation */
+
 section {
     position: relative;
     width: 100%;
     height: 100vh;
-    background: #649ff8;
+    /* background: #649ff8; */
+    background: #78ec7f;
     overflow: hidden;
 }
 
@@ -130,6 +223,12 @@ section .wave.wave4 {
         font-size: 45%;
         top: 100%;
         left: 16%;
+        position: absolute;
+    }
+    .title {
+        font-size: 330%;
+        top: 5%;
+        left: 5%;
         position: absolute;
     }
 }

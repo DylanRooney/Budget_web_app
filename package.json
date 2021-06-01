@@ -4,6 +4,7 @@
   "description": "This is our Project Budgét. This is a balance and budget app for people to set up categories and and budget limits. This allows the user to understand better their spending habits.",
   "main": "server.js",
   "dependencies": {
+    "bcrypt": "^5.0.1",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "mysql2": "^2.2.5",
