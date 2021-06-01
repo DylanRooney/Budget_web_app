@@ -5,8 +5,22 @@ const exphbs = require('express-handlebars');
 const hbs = exphbs.create({})
 const routes = require('./controller');
 
-
+const session = require('express-session');
+const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const sequelize = require("./config/connection");
+
+const sess = {
+  secret: 'secret',
+  cookie: {},
+  resave: false,
+  saveUnitialized: true,
+  store: new SequelizeStore({
+    db: sequelize,
+  }),
+};
+
+app.use(session(sess));
+app.use(routes);
 
 const app = express();
 const PORT = process.env.PORT || 3001;
