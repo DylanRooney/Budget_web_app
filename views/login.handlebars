@@ -6,13 +6,13 @@
         <div class="login-title">
             <h1 class="login-text">Login Here</h1>
         </div>
-        <form>
+        <form id="signup-form" action="/user/login" method="POST">
             <label for="username">Username:</label>
             <input type="text" id="username" name="username" placeholder="username">
             <label for="password">Password:</label>
             <input type="password" id="password" name="password" placeholder="Enter your password"><br>
-            <button value="Login" id="submitBtn">
-                <a href="/signup">Go to signup</a>
+            <button value="login" id="submitBtn">Log in</button>
+            <a href="/signup">Go to signup</a>
         </form>
     </div>
     <div class="wave wave1"></div>
