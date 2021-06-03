@@ -1,234 +1,332 @@
-* {
-    margin: 0;
-    padding: 0;
-}
-
-header {
-    display: flex;
-    float: left;
-    justify-content: flex-end;
-    width: 100%;
-    height: 100px;
-    align-items: center;
-    /* background-color: rgb(116, 245, 116); */
-}
-
-button {
-    justify-content: space-around;
-    margin-right: 1rem;
-    width: 150px;
-    height: 30px;
-    border: none;
-    color: #fff;
-    /* background-color: rgba(236, 247, 141, 1); */
-    background-color: black;
-    border-radius: 50px;
-    cursor: pointer;
-    transition: all 0.3s ease 0s;
-}
-
-button:hover {
-    background-color: rgba(236, 247, 141, 0.8);
-}
-
-h1 {
-    width: 100%;
-    margin-left: 25px;
-    color: rgb(44, 42, 42);
-}
-
-.budget {
-    font-size: 330%;
-    top: 20%;
-    left: 14%;
-    position: absolute;
-}
-
-.budget-text {
-    font-size: 50%;
-    top: 100%;
-    left: 15%;
-    position: absolute;
-}
-
-.title {
-    font-size: 330%;
-    top: 5%;
-    left: 12%;
-    position: absolute;
-}
-
-
-/* login-form */
-
-.login-form {
-    width: 320px;
-    height: 320px;
-    background: rgb(44, 42, 42);
-    top: 25%;
-    left: 8%;
-    box-sizing: border-box;
-    position: absolute;
-    align-items: center;
-}
-
-.login-title {
-    top: 2%;
-    left: 35%;
-    position: absolute;
-}
-
-.login-text {
-    margin: 0;
-    padding: 0 0 20px;
-    font-size: 18px;
-    color: #fff;
-}
-
-form {
-    top: 20%;
-    left: 10%;
-    position: absolute;
-}
-
-form p {
-    color: #fff;
-}
-
-.login-form input {
-    width: 230px;
-    margin-bottom: 10px;
-}
-
-.login-form input[type="text"],
-input[type="password"] {
-    border: none;
-    border-bottom: 1px solid #fff;
-    background: transparent;
-    outline: none;
-    height: 30px;
-    color: #fff;
-    font-size: 15px;
-}
-
-.login-form input[type="submit"] {
-    border: none;
-    outline: none;
-    height: 25px;
-    background: #78ec7f;
-    font-size: 18px;
-    border-radius: 20px;
-    margin-bottom: 10px;
-    color: rgb(44, 42, 42);
-}
-
-.login-form input[type="submit"]:hover {
-    cursor: pointer;
-    background: #9af1a0;
-    color: black;
-}
-
-form a {
-    top: 100%;
-    left: 1%;
-    position: absolute;
-    text-decoration: none;
-    color: white;
-}
-
-form a:hover {
-    color: #9af1a0;
-}
-
-
-/* Animation */
-
-section {
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    /* background: #649ff8; */
-    background: #78ec7f;
-    overflow: hidden;
-}
-
-section .wave {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 100px;
-    background: url(wave.png);
-    background-size: 1000px 100px;
-}
-
-section .wave.wave1 {
-    animation: animate 30s linear infinite;
-    z-index: 1000;
-    opacity: 1;
-    animation-delay: 0s;
-    bottom: 0;
-}
-
-section .wave.wave2 {
-    animation: animate2 15s linear infinite;
-    z-index: 999;
-    opacity: 0.5;
-    animation-delay: -5s;
-    bottom: 10px;
-}
-
-section .wave.wave3 {
-    animation: animate 30s linear infinite;
-    z-index: 998;
-    opacity: 0.2;
-    animation-delay: 2s;
-    bottom: 15;
-}
-
-section .wave.wave4 {
-    animation: animate2 5s linear infinite;
-    z-index: 997;
-    opacity: 0.7;
-    animation-delay: -5s;
-    bottom: 20px;
-}
-
-@keyframes animate {
-    0% {
-        background-position-x: 0;
+    * {
+        margin: 0;
+        padding: 0;
     }
-    100% {
-        background-position-x: 1000px;
+    
+    header {
+        display: flex;
+        float: left;
+        justify-content: flex-end;
+        width: 100%;
+        height: 100px;
+        align-items: center;
+        /* background-color: rgb(116, 245, 116); */
     }
-}
-
-@keyframes animate2 {
-    0% {
-        background-position-x: 0;
+    
+    .head-nav {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 1rem;
     }
-    100% {
-        background-position-x: -1000px;
+    
+    .btnLogout {
+        width: 100px;
     }
-}
-
-@media screen and (max-width: 320px) {
+    
+    li,
+    .li-head {
+        font-size: 16px;
+        font-weight: 900;
+        color: black;
+        text-decoration: none;
+        align-items: center;
+        list-style: none;
+        display: inline-block;
+        padding: 20px 20px 0 0;
+        transition: all 0.3s ease 0s;
+    }
+    
+    li,
+    .li-head:hover {
+        color: rgb(238, 88, 88);
+    }
+    
+    button {
+        justify-content: space-around;
+        margin-right: 1rem;
+        width: 150px;
+        height: 30px;
+        border: none;
+        color: #fff;
+        /* background-color: rgba(236, 247, 141, 1); */
+        background-color: black;
+        border-radius: 50px;
+        cursor: pointer;
+        transition: all 0.3s ease 0s;
+    }
+    
+    button:hover {
+        background-color: rgba(236, 247, 141, 0.8);
+    }
+    
+    h1 {
+        width: 100%;
+        margin-left: 25px;
+        color: rgb(44, 42, 42);
+    }
+    
     .budget {
-        font-size: 300%;
+        font-size: 330%;
+        top: 20%;
+        left: 14%;
+        position: absolute;
+    }
+    
+    .budget-text {
+        font-size: 50%;
+        top: 100%;
+        left: 15%;
+        position: absolute;
+    }
+    
+    .title {
+        font-size: 330%;
+        top: 5%;
+        left: 12%;
+        position: absolute;
+    }
+    /* Add Expense */
+    
+    .table {
+        display: flex;
+        flex-wrap: wrap;
+        width: 50%;
+        height: 400px;
+        background: rgb(44, 42, 42);
+        top: 25%;
+        left: 8%;
+        box-sizing: border-box;
+        position: absolute;
+        align-items: center;
+    }
+    
+    .table label {
+        color: #fff;
+    }
+    
+    .add-form {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        justify-content: center;
+        align-self: center;
+        left: 40%;
+    }
+    
+    .add-title {
+        font-size: 100%;
+        top: 10%;
+        left: 33%;
+        position: absolute;
+    }
+    
+    .add-text {
+        color: #fff;
+    }
+    
+    .login-form input {
+        width: 230px;
+        margin-bottom: 10px;
+    }
+    
+    .add-form input[type="text"] {
+        border: none;
+        border-bottom: 1px solid #fff;
+        background: transparent;
+        outline: none;
+        height: 30px;
+        color: #fff;
+        font-size: 15px;
+    }
+    
+    .add-form input[type="submit"] {
+        border: none;
+        outline: none;
+        height: 25px;
+        background: #78ec7f;
+        font-size: 18px;
+        border-radius: 20px;
+        margin-bottom: 10px;
+        color: rgb(44, 42, 42);
+    }
+    
+    .list {
+        margin: 1rem 0 0 0;
+    }
+    
+    .add-form input[type="submit"]:hover {
+        cursor: pointer;
+        background: #9af1a0;
+        color: black;
+    }
+    /* login-form */
+    
+    .login-form {
+        width: 320px;
+        height: 320px;
+        background: rgb(44, 42, 42);
+        top: 25%;
+        left: 8%;
+        box-sizing: border-box;
+        position: absolute;
+        align-items: center;
+    }
+    
+    .login-title {
+        top: 2%;
+        left: 35%;
+        position: absolute;
+    }
+    
+    .login-text {
+        margin: 0;
+        padding: 0 0 20px;
+        font-size: 18px;
+        color: #fff;
+    }
+    
+    form {
         top: 20%;
         left: 10%;
         position: absolute;
     }
-    .budget-text {
-        font-size: 45%;
+    
+    form p {
+        color: #fff;
+    }
+    
+    .login-form input {
+        width: 230px;
+        margin-bottom: 10px;
+    }
+    
+    .login-form input[type="text"],
+    input[type="password"] {
+        border: none;
+        border-bottom: 1px solid #fff;
+        background: transparent;
+        outline: none;
+        height: 30px;
+        color: #fff;
+        font-size: 15px;
+    }
+    
+    .login-form input[type="submit"] {
+        border: none;
+        outline: none;
+        height: 25px;
+        background: #78ec7f;
+        font-size: 18px;
+        border-radius: 20px;
+        margin-bottom: 10px;
+        color: rgb(44, 42, 42);
+    }
+    
+    .login-form input[type="submit"]:hover {
+        cursor: pointer;
+        background: #9af1a0;
+        color: black;
+    }
+    
+    form a {
         top: 100%;
-        left: 16%;
+        left: 1%;
         position: absolute;
+        text-decoration: none;
+        color: white;
     }
-    .title {
-        font-size: 330%;
-        top: 5%;
-        left: 5%;
+    
+    form a:hover {
+        color: #9af1a0;
+    }
+    /* Animation */
+    
+    section {
+        position: relative;
+        width: 100%;
+        height: 100vh;
+        /* background: #649ff8; */
+        background: #78ec7f;
+        overflow: hidden;
+    }
+    
+    section .wave {
         position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100px;
+        background: url(wave.png);
+        background-size: 1000px 100px;
     }
-}
+    
+    section .wave.wave1 {
+        animation: animate 30s linear infinite;
+        z-index: 1000;
+        opacity: 1;
+        animation-delay: 0s;
+        bottom: 0;
+    }
+    
+    section .wave.wave2 {
+        animation: animate2 15s linear infinite;
+        z-index: 999;
+        opacity: 0.5;
+        animation-delay: -5s;
+        bottom: 10px;
+    }
+    
+    section .wave.wave3 {
+        animation: animate 30s linear infinite;
+        z-index: 998;
+        opacity: 0.2;
+        animation-delay: 2s;
+        bottom: 15;
+    }
+    
+    section .wave.wave4 {
+        animation: animate2 5s linear infinite;
+        z-index: 997;
+        opacity: 0.7;
+        animation-delay: -5s;
+        bottom: 20px;
+    }
+    
+    @keyframes animate {
+        0% {
+            background-position-x: 0;
+        }
+        100% {
+            background-position-x: 1000px;
+        }
+    }
+    
+    @keyframes animate2 {
+        0% {
+            background-position-x: 0;
+        }
+        100% {
+            background-position-x: -1000px;
+        }
+    }
+    
+    @media screen and (max-width: 320px) {
+        .budget {
+            font-size: 300%;
+            top: 20%;
+            left: 10%;
+            position: absolute;
+        }
+        .budget-text {
+            font-size: 45%;
+            top: 100%;
+            left: 16%;
+            position: absolute;
+        }
+        .title {
+            font-size: 330%;
+            top: 5%;
+            left: 5%;
+            position: absolute;
+        }
+    }
