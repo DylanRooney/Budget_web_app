@@ -2,8 +2,6 @@ const router = require('express').Router();
 const { User } = require('../models');
 
 const bodyParser = require('body-parser');
-const { route } = require('./htmlroutes');
-const { features } = require('process');
 const urlEncodedParser = bodyParser.urlencoded({ extended: false })
 
 // SIGN UP
