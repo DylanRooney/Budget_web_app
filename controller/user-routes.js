@@ -21,6 +21,9 @@ router.post('/signup', urlEncodedParser, async (req, res) => {
             req.session.email = newUser.email
             res.status(200).json(newUser);
         });
+        console.log(`Logged in: ${req.session.loggedIn}`);
+        res.redirect('../profile');
+        // res.render('profile');
     } catch (err) {
         console.log(err);
         res.status(500).json(err);
@@ -53,6 +56,9 @@ router.post('/login', urlEncodedParser, async (req, res) => {
             req.session.email = userData.email;
             res.status(200).json({ user: userData, message: "Logged in!" });
         });
+        console.log(`${req.session.email} is logged in: ${req.session.loggedIn}`);
+        res.redirect('../profile');
+        // res.render('profile');
     } catch (err) {
         console.error(err);
         res.status(500).json(err);
