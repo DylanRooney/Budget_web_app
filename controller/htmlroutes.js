@@ -24,4 +24,21 @@ router.get('/signup', async (req, res,) => {
     }
 })
 
+router.get('/profile', async (req, res) => {
+    try {
+        res.render('profile');
+    } catch {
+        res.status(500).json(err)
+    }
+})
+
+router.get('/expense', async (req, res) => {
+    try {
+        res.render('expense');
+    } catch {
+        res.status(500).json(err)
+    }
+})
+
+
 module.exports = router
