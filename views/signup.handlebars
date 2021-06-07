@@ -6,14 +6,14 @@
         <div class="signup-title">
             <h1 class="signup-text">Sign Up Here</h1>
         </div>
-        <form id="signup-form" action="/user/signup" method="POST">
+        <form id="signup-form">
             <label for="username">Username:</label>
-            <input type="text" id="username" name="username" placeholder="username">
+            <input type="text" id="username-signup" name="username" placeholder="username">
             <label for="email">Email:</label>
-            <input type="email" id="email" name="email" placeholder="email"><br>
+            <input type="email" id="email-signup" name="email" placeholder="email"><br>
             <label for="password">Password:</label>
-            <input type="password" id="password" name="password" placeholder="Enter your password"><br>
-            <button type="submit" value="signup" id="submitBtn">Sign Up</button>
+            <input type="password" id="password-signup" name="password" placeholder="Enter your password"><br>
+            <input type="submit" value="signup" id="signup-submitBtn">
             <a href="/login">Go to login</a>
         </form>
     </div>
@@ -22,3 +22,4 @@
     <div class="wave wave3"></div>
     <div class="wave wave4"></div>
 </section>
+<script src="/signup.js"></script>

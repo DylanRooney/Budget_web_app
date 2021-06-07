@@ -2,11 +2,11 @@ const router = require('express').Router();
 
 router.get('/', async (req, res,) => {
     try {
-        // if the user is unauthenticated
-        res.render('login')
-        // otherwise
-        // res.render("some dashboard page thingy")
-
+        // if (req.session.loggedIn) {
+        //     res.render('profile', { loggedIn: req.session.loggedIn })
+        // } else {
+        res.render('login', { loggedIn: req.session.loggedIn })
+        // }
     } catch (err) {
         res.status(500).json(err)
     }

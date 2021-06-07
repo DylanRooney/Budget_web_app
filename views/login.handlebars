@@ -6,12 +6,12 @@
         <div class="login-title">
             <h1 class="login-text">Login Here</h1>
         </div>
-        <form id="signup-form" action="/user/login" method="POST">
+        <form id="login-form">
             <label for="username">Username:</label>
-            <input type="text" id="username" name="username" placeholder="username">
+            <input type="text" id="username-login" name="username" placeholder="username">
             <label for="password">Password:</label>
-            <input type="password" id="password" name="password" placeholder="Enter your password"><br>
-            <button value="login" id="submitBtn">Log in</button>
+            <input type="password" id="password-login" name="password" placeholder="Enter your password"><br>
+            <input value="login" type="submit" id="login-submitBtn">
             <a href="/signup">Go to signup</a>
         </form>
     </div>
@@ -20,3 +20,4 @@
     <div class="wave wave3"></div>
     <div class="wave wave4"></div>
 </section>
+<script src="/login.js"></script>
