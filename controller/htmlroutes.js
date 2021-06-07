@@ -2,11 +2,11 @@ const router = require('express').Router();
 
 router.get('/', async (req, res,) => {
     try {
-        // if (req.session.loggedIn) {
-        //     res.render('profile', { loggedIn: req.session.loggedIn })
-        // } else {
-        res.render('login', { loggedIn: req.session.loggedIn })
-        // }
+        if (req.session.loggedIn) {
+            res.render('profile', { loggedIn: req.session.loggedIn })
+        } else {
+            res.render('login', { loggedIn: req.session.loggedIn })
+        }
     } catch (err) {
         res.status(500).json(err)
     }
@@ -14,11 +14,7 @@ router.get('/', async (req, res,) => {
 
 router.get('/signup', async (req, res,) => {
     try {
-        // if the user is unauthenticated
         res.render('signup')
-        // otherwise
-        // res.render("some dashboard page thingy")
-
     } catch (err) {
         res.status(500).json(err)
     }
@@ -26,7 +22,7 @@ router.get('/signup', async (req, res,) => {
 
 router.get('/profile', async (req, res) => {
     try {
-        res.render('profile');
+        res.render('profile', { loggedIn: req.session.loggedIn });
     } catch {
         res.status(500).json(err)
     }
@@ -34,7 +30,7 @@ router.get('/profile', async (req, res) => {
 
 router.get('/expense', async (req, res) => {
     try {
-        res.render('expense');
+        res.render('expense', { loggedIn: req.session.loggedIn });
     } catch {
         res.status(500).json(err)
     }
