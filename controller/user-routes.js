@@ -1,12 +1,9 @@
 const router = require('express').Router();
 const { User } = require('../models');
 
-const bodyParser = require('body-parser');
-const urlEncodedParser = bodyParser.urlencoded({ extended: false })
-
 // SIGN UP
-router.post('/signup', urlEncodedParser, async (req, res) => {
-    console.log(req.body);
+router.post('/signup', async (req, res) => {
+    // console.log(req.body);
     try {
         // inserting user from request into the db
         const newUser = await User.create({
@@ -20,23 +17,25 @@ router.post('/signup', urlEncodedParser, async (req, res) => {
             req.session.loggedIn = true
             req.session.email = newUser.email
             res.status(200).json(newUser);
+            return;
         });
+        window.location.replace('/profile');
         console.log(`Logged in: ${req.session.loggedIn}`);
-        res.redirect('../profile');
-        // res.render('profile');
     } catch (err) {
         console.log(err);
         res.status(500).json(err);
+        return;
     }
 });
 
 // LOG IN
-router.post('/login', urlEncodedParser, async (req, res) => {
+router.post('/login', async (req, res) => {
     console.log(req.body);
     try {
         const userData = await User.findOne({
             where: {
                 username: req.body.username,
+                // validate username
             },
         });
         console.log(userData);
@@ -44,21 +43,18 @@ router.post('/login', urlEncodedParser, async (req, res) => {
             res.status(400).json({ message: 'Incorrect email or password' });
             return;
         }
-
         const validatePassword = await userData.checkPassword(req.body.password);
         if (!validatePassword) {
-            res.stauts(400).json({ message: 'Incorrect email or password' });
+            res.status(400).json({ message: 'Incorrect email or password' });
             return;
         }
-
         req.session.save(() => {
             req.session.loggedIn = true;
             req.session.email = userData.email;
             res.status(200).json({ user: userData, message: "Logged in!" });
+            return;
         });
         console.log(`${req.session.email} is logged in: ${req.session.loggedIn}`);
-        res.redirect('../profile');
-        // res.render('profile');
     } catch (err) {
         console.error(err);
         res.status(500).json(err);
