@@ -1,33 +1,6 @@
 const router = require('express').Router();
 const { User } = require('../models');
 
-// // SIGN UP
-// router.post('/signup', async (req, res) => {
-//     // console.log(req.body);
-//     try {
-//         // inserting user from request into the db
-//         const newUser = await User.create({
-//             username: req.body.username,
-//             email: req.body.email,
-//             password: req.body.password,
-//         });
-//         console.log(newUser)
-//         // logging user in and saving session
-//         req.session.save(() => {
-//             req.session.loggedIn = true
-//             req.session.email = newUser.email
-//             res.status(200).json(newUser);
-//             return;
-//         });
-//         window.location.replace('/profile');
-//         console.log(`Logged in: ${req.session.loggedIn}`);
-//     } catch (err) {
-//         console.log(err);
-//         res.status(500).json(err);
-//         return;
-//     }
-// });
-
 // SIGN UP
 router.post('/signup', async (req, res) => {
     console.log(req.body);
