@@ -10,7 +10,20 @@
 </head>
 
 <body>
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            {{#if loggedIn}}
+            <li><a href="/profile">Profile</a></li>
+            <li><a href="" id="logout-btn">Log out</a></li>
+            {{else}}
+            <li><a href="/">Log in</a></li>
+            <li><a href="/signup">Sign up</a></li>
+            {{/if}}
+        </ul>
+    </nav>
     {{{body}}}
+    <script src="/logout.js"></script>
 </body>
 
 </html>

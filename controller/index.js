@@ -4,7 +4,7 @@ const htmlroutes = require('./htmlroutes')
 
 const userroutes = require('./user-routes')
 
-const purchase = require('./espense-route')
+const purchase = require('./expense-route')
 
 router.use('/', htmlroutes)
 
