@@ -51,6 +51,9 @@
         cursor: pointer;
         transition: all 0.3s ease 0s;
         text-decoration: none;
+    } 
+    #logout-btn:hover {
+        background-color: rgba(236, 247, 141, 0.8);
     }
     
     li,
