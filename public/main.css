@@ -239,6 +239,14 @@
     form a:hover {
         color: #9af1a0;
     }
+    
+    .pName label p {
+        display: inline-block;
+    }
+    
+    #chart_div {
+        margin: 10rem 0 1rem 14rem;
+    }
     /* Animation */
     
     section {
