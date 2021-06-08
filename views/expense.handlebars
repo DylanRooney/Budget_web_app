@@ -14,6 +14,25 @@
 
 <body>
     <h2 id="budget-logo">Budgét</h2>
+    <div>
+        {{#each expenses as |expense|}}
+        <ul>
+            <li>
+                Expense name: {{expense.expense_name}}
+            </li>
+            <li>
+                Amount: ${{expense.amount}}
+            </li>
+            <li>
+                Spending category: {{expense.subCategory.subcategory_name}}
+            </li>
+            <li>
+                Date: {{format_date expense.createdAt}}
+            </li>
+        </ul>
+        {{/each}}
+        <br>
+    </div>
     <section>
         <div class="table">
             <div class="container">
@@ -25,29 +44,41 @@
                 </div>
 
 
+
+
                 <script type="text/javascript" charset="utf-8">
                     // specify the columns
                     const columnDefs = [{
-                        field: "ID", sortable: true
+                        field: "Date", sortable: true
+                    }, {
+                        field: "Expense", sortable: true
+                    }, {
+                        field: "Amount", sortable: true
                     }, {
                         field: "Subcategory", sortable: true
                     }, {
-                        field: "Spending", sortable: true
+                        field: "Total", sortable: true
                     }];
 
                     // specify the data
                     const rowData = [{
-                        ID: "01",
-                        Subcategory: "Transport",
-                        Spending: 35000
+                        Date: "01/5",
+                        Expense: 'petrol',
+                        Amount: '80',
+                        Subcategory: 'Transport',
+                        Total: 35000
                     }, {
-                        ID: "02",
-                        Subcategory: "Transport",
-                        Spending: 32000
+                        Date: "01/5",
+                        Expense: 'petrol',
+                        Amount: '80',
+                        Subcategory: 'Transport',
+                        Total: 35000
                     }, {
-                        ID: "03",
-                        Subcategory: "Transport",
-                        Spending: 72000
+                        Date: "01/5",
+                        Expense: 'petrol',
+                        Amount: '80',
+                        Subcategory: 'Transport',
+                        Total: 35000
                     }];
 
                     // let the grid know which columns and what data to use
