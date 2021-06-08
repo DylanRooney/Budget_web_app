@@ -38,15 +38,6 @@ router.get("/expense", async (req, res) => {
     }
 });
 
-// router.get("/add", async(req, res) => {
-//     try {
-//         res.render("add", { loggedIn: req.session.loggedIn });
-//     } catch {
-//         res.status(500).json(err);
-//     }
-// });
-
-
 router.get("/add", async (req, res) => {
     try {
         const subCategoryData = await SubCategory.findAll().catch((err) => {
