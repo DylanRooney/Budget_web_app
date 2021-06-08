@@ -144,6 +144,10 @@
         align-self: center;
         left: 40%;
     }
+
+    .inline-radio{
+        display: inline-flex;
+    }
     
     .add-title {
         font-size: 100%;
