@@ -42,7 +42,23 @@ router.post('/expense', async (req, res) => {
 })
 
 
-
+router.delete('/expense/:id', async (req, res) => {
+    try {
+        const expensedata = await Expense.destroy({
+            where: {
+                id: req.params.id,
+                //might need user_id
+            }
+        })
+        if (!expensedata) {
+            res.status(404).json({ message: "no expense with this id" });
+            return;
+        }
+        res.status(200).json(expensedata)
+    } catch (err) {
+        res.status(500).json(err)
+    }
+})
 
 
 module.exports = router
