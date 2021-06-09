@@ -19,7 +19,7 @@ async function handleLogin(event) {
             document.location.replace('/profile');
         } else {
             const body = await response.json();
-            errorsEl.innerHTML = ""
+            errorsEl.innerHTML = "";
             let ul = document.createElement('ul');
             if (body.errors) {
                 body.errors.forEach((e) => {
