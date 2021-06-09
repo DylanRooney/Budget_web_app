@@ -4,7 +4,7 @@ async function handleAddExpense(event) {
 
     const expense_name = document.getElementById('expense_name').value.trim();
     const amount = document.getElementById('amount').value.trim();
-    const subcategory_id = document.querySelector("input[type=radio]:checked").value.trim();
+    const subcategory_id = document.getElementById("subcategory").value;
     console.log(expense_name)
     console.log(amount)
     console.log(subcategory_id)
