@@ -245,13 +245,13 @@
     #errors{
         display: inline-flex;
         flex-direction: row;
-        position: absolute;
-        top: 30%;
-        left: 10%;
-        width: 300px;
     }
     #errors li{
-        padding: 10px 0px 0px;
+        padding: 0px 25px 15px;
+        list-style:none;
+        color: red;
+        text-align: center;
+        font-weight: bold;
     }
 
     /* Animation */

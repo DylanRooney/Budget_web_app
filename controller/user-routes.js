@@ -51,15 +51,15 @@ router.post('/signup',
 
 // LOG IN
 router.post('/login',
-    check('password')
-        .isLength({ min: 8 })
-        .withMessage('Password must be at least 8 characters'),
+    // check('password')
+    //     .isLength({ min: 8 })
+    //     .withMessage('Password must be at least 8 characters'),
 
     async (req, res) => {
-        const errors = validationResult(req);
-        if (!errors.isEmpty()) {
-            return res.status(400).json({ errors: errors.array() });
-        }
+        // const errors = validationResult(req);
+        // if (!errors.isEmpty()) {
+        //     return res.status(400).json({ errors: errors.array() });
+        // }
         try {
             const userData = await User.findOne({
                 where: {
@@ -68,12 +68,12 @@ router.post('/login',
             });
             console.log(userData);
             if (!userData) {
-                res.status(400).json({ message: 'Incorrect email or password' });
+                res.status(400).json({ message: 'Incorrect username or password' });
                 return;
             }
             const validatePassword = await userData.checkPassword(req.body.password);
             if (!validatePassword) {
-                res.status(400).json({ message: 'Incorrect email or password' });
+                res.status(400).json({ message: 'Incorrect username or password' });
                 return;
             }
             req.session.save(() => {

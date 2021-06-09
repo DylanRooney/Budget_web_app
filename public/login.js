@@ -19,11 +19,10 @@ async function handleLogin(event) {
             document.location.replace('/profile');
         } else {
             const body = await response.json();
-            console.log(body)
+            errorsEl.innerHTML = ""
             let ul = document.createElement('ul');
             if (body.errors) {
                 body.errors.forEach((e) => {
-                    console.log(e)
                     let li = document.createElement('li');
                     li.innerHTML = `${e.msg}`
                     ul.appendChild(li);
