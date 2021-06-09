@@ -5,7 +5,11 @@ async function handleSignup(event) {
     const username = document.getElementById('username-signup').value.trim();
     const email = document.getElementById('email-signup').value.trim();
     const password = document.getElementById('password-signup').value.trim();
+
     const errorsEl = document.getElementById('errors');
+    const usernameEl = document.getElementById('username-label');
+    const emailEl = document.getElementById('email-label');
+    const passwordEl = document.getElementById('password-label')
 
     if (username && email && password) {
         const response = await fetch('/user/signup', {
@@ -27,6 +31,14 @@ async function handleSignup(event) {
                 let li = document.createElement('li');
                 li.innerHTML = `${e.msg}`
                 ul.appendChild(li);
+
+                if (e.param === 'username') {
+                    usernameEl.style.color = "red";
+                } if (e.param === 'email') {
+                    emailEl.style.color = "red";
+                } else if (e.param === 'password') {
+                    passwordEl.style.color = "red";
+                }
             })
             errorsEl.appendChild(ul);
         }

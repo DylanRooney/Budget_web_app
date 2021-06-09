@@ -4,6 +4,7 @@ async function handleLogin(event) {
 
     const username = document.getElementById('username-login').value.trim();
     const password = document.getElementById('password-login').value.trim();
+
     const errorsEl = document.getElementById('errors');
 
     if (username && password) {
@@ -21,17 +22,9 @@ async function handleLogin(event) {
             const body = await response.json();
             errorsEl.innerHTML = "";
             let ul = document.createElement('ul');
-            if (body.errors) {
-                body.errors.forEach((e) => {
-                    let li = document.createElement('li');
-                    li.innerHTML = `${e.msg}`
-                    ul.appendChild(li);
-                })
-            } else if (body.message) {
-                let li = document.createElement('li');
-                li.innerHTML = `${body.message}`
-                ul.appendChild(li);
-            }
+            let li = document.createElement('li');
+            li.innerHTML = `${body.message}`
+            ul.appendChild(li);
             errorsEl.appendChild(ul);
         }
     }
