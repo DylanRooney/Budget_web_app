@@ -160,7 +160,8 @@
         display: flex;
         flex-wrap: wrap;
         width: 50%;
-        height: 500px;
+        padding-top: 20px;
+        padding-bottom: 50px;
         background: rgb(44, 42, 42);
         top: 25%;
         box-sizing: border-box;
