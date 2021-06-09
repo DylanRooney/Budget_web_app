@@ -21,12 +21,18 @@ async function handleLogin(event) {
             const body = await response.json();
             console.log(body)
             let ul = document.createElement('ul');
-            body.errors.forEach((e) => {
-                console.log(e)
+            if (body.errors) {
+                body.errors.forEach((e) => {
+                    console.log(e)
+                    let li = document.createElement('li');
+                    li.innerHTML = `${e.msg}`
+                    ul.appendChild(li);
+                })
+            } else if (body.message) {
                 let li = document.createElement('li');
-                li.innerHTML = `${e.msg}`
+                li.innerHTML = `${body.message}`
                 ul.appendChild(li);
-            })
+            }
             errorsEl.appendChild(ul);
         }
     }
