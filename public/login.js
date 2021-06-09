@@ -1,6 +1,5 @@
 async function handleLogin(event) {
     event.preventDefault();
-    console.log('function triggered')
 
     const username = document.getElementById('username-login').value.trim();
     const password = document.getElementById('password-login').value.trim();
