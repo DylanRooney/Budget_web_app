@@ -12,15 +12,14 @@
 <body>
     <section class="main-header">
         <div class="user-nav">
-            {{#if loggedIn}}
-            <li><a class="log-out" href="#"><button class="btnLogout" id="logout-btn">Logout</button></a></li>
-            {{!-- <li><a href="" id="logout-btn">Log out</a></li> --}}
-            {{else}}
-            <li><a class="log-out" href="/"><button class="btnLogout" id="logout-btn">Log In</button></a></li>
-            <li><a class="log-out" href="signup"><button class="btnLogout" id="logout-btn">Sign Up</button></a></li>
-            {{!-- <li><a href="/">Log in</a></li>
-            <li><a href="/signup">Sign up</a></li> --}}
-            {{/if}}
+            <ul>
+                {{#if loggedIn}}
+                <li></li><a class="log-out" href="#"><button class="btnLogout" id="logout-btn">Logout</button></a></li>
+                {{else}}
+                <li><a href="/"><button>Log In</button></a></li>
+                <li><a href="signup"><button>Sign Up</button></a></li>
+                {{/if}}
+            </ul>
         </div>
         <nav id="with-auth-nav">
             <ul>

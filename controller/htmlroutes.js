@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { SubCategory, Expense, ParentCategory } = require('../models');
+const { SubCategory, Expense, ParentCategory, User } = require('../models');
 
 
 router.get("/", async (req, res) => {
@@ -24,8 +24,18 @@ router.get("/signup", async (req, res) => {
 
 router.get("/profile", async (req, res) => {
     try {
-        res.render("profile", { loggedIn: req.session.loggedIn });
-    } catch {
+        const userData = await User.findOne({
+            where: {
+                id: req.session.user_id,
+            },
+            attributes: {
+                exclude: ['password']
+            }
+        })
+        const user = userData.get({ plain: true });
+        console.log(user)
+        res.render("profile", { user, loggedIn: req.session.loggedIn });
+    } catch (err) {
         res.status(500).json(err);
     }
 });
