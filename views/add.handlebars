@@ -4,9 +4,9 @@
         <form class="add-form">
             <h1 class="form-title">ADD AN EXPENSE</h1>
             <label for="expense-name">Name of Expense:</label>
-            <input type="text" name="name" id="expense_name" placeholder="Expense">
+            <input type="text" name="name" id="expense_name" placeholder="Expense" required>
             <label for="amount">Amount:</label>
-            <input type="text" name="amount" id="amount" placeholder="$">
+            <input type="text" name="amount" id="amount" placeholder="$" required>
             <label for="subcategory">Select a category:</label>
             <select id="subcategory">
                 {{#each subcategories as |subcategory|}}
