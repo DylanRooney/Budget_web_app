@@ -2,17 +2,15 @@
     <header class="title">
         <h1>Budgét</h1>
     </header>
-    <div class="login-form">
-        <div class="login-title">
-            <h1 class="login-text">Login Here</h1>
-        </div>
+    <div class="form-container">
         <form id="login-form">
-            <label for="username">Username:</label>
-            <input type="text" id="username-login" name="username" placeholder="username">
+            <h1 class="form-title">Login Here</h1>
+            <label for="Username">Username:</label>
+            <input type="text" id="username-login" name="username" placeholder="Username">
             <label for="password">Password:</label>
-            <input type="password" id="password-login" name="password" placeholder="Enter your password"><br>
+            <input type="password" id="password-login" name="password" placeholder="Password">
             <input value="login" type="submit" id="login-submitBtn">
-            <a href="/signup">Go to signup</a>
+            {{!-- <a href="/signup">Go to signup</a> --}}
         </form>
         <div id="errors"></div>
     </div>

@@ -1,26 +1,20 @@
 <h2 id="budget-logo">Budgét</h2>
 <section id="card-container">
-    <div class="table">
-        <div class="container">
-            <div class="add-title">
-                <h1 class="add-text">ADD AN EXPENSE</h1>
-            </div>
-            <form class="add-form">
-                <label for="expense-name">Name:</label>
-                <input type="text" name="name" id="expense_name" placeholder="Expense Name">
-                <label for="amount">Amount:</label>
-                <input type="text" name="amount" id="amount" placeholder="Amount">
-                <div id="radio-container">
-                    <label for="subcategory">Select a category:</label><br>
-                    {{#each subcategories as |subcategory|}}
-                    <input type="radio" name="subcategory" class="inline-radio" value="{{subcategory.id}}">
-                    <label for="{{subcategory.subcategory_name}}"
-                        class="inline-radio">{{subcategory.subcategory_name}}</label><br>
-                    {{/each}}
-                </div>
-                <input type="submit" value="submit" name="subitExpense" id="submitExpenseBtn">
-            </form>
-        </div>
+    <div class="form-container">
+        <form class="add-form">
+            <h1 class="form-title">ADD AN EXPENSE</h1>
+            <label for="expense-name">Name:</label>
+            <input type="text" name="name" id="expense_name" placeholder="Expense Name">
+            <label for="amount">Amount:</label>
+            <input type="text" name="amount" id="amount" placeholder="Amount">
+            <label for="subcategory">Select a category:</label>
+            <select>
+                {{#each subcategories as |subcategory|}}
+                <option value="{{subcategory.id}}">{{subcategory.subcategory_name}}</option>
+                {{/each}}
+            </select>
+            <input type="submit" value="submit" name="subitExpense" id="submitExpenseBtn">
+        </form>
     </div>
     <div class="wave wave1"></div>
     <div class="wave wave2"></div>

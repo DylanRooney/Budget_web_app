@@ -10,20 +10,8 @@
         width: 100%;
         height: 100px;
         align-items: center;
-        /* background-color: rgb(116, 245, 116); */
     }
     
-    .user-nav {
-        display: flex;
-        justify-content: flex-end;
-        margin-top: 1rem;
-    }
-
-    #with-auth-nav{
-        display: flex;
-        justify-content: center;
-    }
-
     #budget-logo{
         position: fixed;
         top: 40px;
@@ -34,6 +22,32 @@
         display: flex;
         justify-content: center;
         align-items: center;
+    }
+
+    .profile-container,
+    .expense-container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+    }
+
+    .profile-container h1{
+        text-align: center;
+    }
+
+    #profile-ul{
+        display: flex;
+        flex-direction: column;
+        padding-bottom: 20px;
+    }
+
+    #profile-ul li{
+        color: white;
+        padding: 2px;
+        list-style: none;
+        text-align: left;
     }
     
     
@@ -55,8 +69,32 @@
     #logout-btn:hover {
         background-color: rgba(236, 247, 141, 0.8);
     }
+
+    .user-nav {
+        display: flex;
+        justify-content: flex-end;
+        margin-top: 1rem;
+    }
+
+    .user-nav li{
+        display: inline-block;
+        list-style: none;
+    }
+
+
+    #with-auth-nav{
+        width: 100vw;
+        display: inline-flex;
+        justify-content: center;
+        flex-direction: row;
+    }
+
+    #with-auth-nav li{
+
+        display: inline-block;
+        list-style: none;
+    }
     
-    li,
     .li-head {
         font-size: 16px;
         font-weight: 900;
@@ -68,8 +106,7 @@
         padding: 20px 20px 0 0;
         transition: all 0.3s ease 0s;
     }
-    
-    li,
+
     .li-head:hover {
         color: rgb(238, 88, 88);
     }
@@ -81,7 +118,6 @@
         height: 30px;
         border: none;
         color: #fff;
-        /* background-color: rgba(236, 247, 141, 1); */
         background-color: black;
         border-radius: 50px;
         cursor: pointer;
@@ -94,7 +130,6 @@
     
     h1 {
         width: 100%;
-        margin-left: 25px;
         color: rgb(44, 42, 42);
     }
     
@@ -117,6 +152,7 @@
         top: 5%;
         left: 12%;
         position: absolute;
+        z-index: 0;
     }
     /* Add Expense */
     
@@ -129,115 +165,51 @@
         top: 25%;
         box-sizing: border-box;
         position: absolute;
-        align-items: center;
+        align-items: flex-start;
+        justify-content: center;
     }
     
     .table label {
         color: #fff;
     }
     
-    .add-form {
-        display: flex;
-        flex-wrap: wrap;
-        flex-direction: column;
-        justify-content: center;
-        align-self: center;
-        left: 40%;
-    }
-
-    .inline-radio{
-        display: inline-flex;
-    }
-    
-    .add-title {
-        font-size: 100%;
-        top: 10%;
-        left: 33%;
-        position: absolute;
-    }
-    
     .add-text {
         color: #fff;
     }
-    
-    .login-form input {
-        width: 230px;
-        margin-bottom: 10px;
-    }
-    
-    .add-form input[type="text"] {
-        border: none;
-        border-bottom: 1px solid #fff;
-        background: transparent;
-        outline: none;
-        height: 30px;
-        color: #fff;
-        font-size: 15px;
-    }
-    
-    .add-form input[type="submit"] {
-        border: none;
-        outline: none;
-        height: 25px;
-        background: #78ec7f;
-        font-size: 18px;
-        border-radius: 20px;
-        margin-bottom: 10px;
-        color: rgb(44, 42, 42);
-    }
-    
-    .list {
-        margin: 1rem 0 0 0;
-    }
-    
-    .add-form input[type="submit"]:hover {
-        cursor: pointer;
-        background: #9af1a0;
-        color: black;
-    }
-    /* login-form */
-    
-    .login-form {
-        width: 320px;
-        height: 320px;
-        background: rgb(44, 42, 42);
-        top: 25%;
-        left: 8%;
-        box-sizing: border-box;
+
+    /* CONSISTENT FORM STYLING */
+    .form-container{
         position: absolute;
-        align-items: center;
-    }
-    
-    .login-title {
-        top: 2%;
-        left: 35%;
-        position: absolute;
-    }
-    
-    .login-text {
-        margin: 0;
-        padding: 0 0 20px;
-        font-size: 18px;
-        color: #fff;
-    }
-    
-    form {
         top: 20%;
         left: 10%;
-        position: absolute;
-    }
-    
-    form p {
-        color: #fff;
-    }
-    
-    .login-form input {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 20px;
         width: 230px;
-        margin-bottom: 10px;
+        background: rgb(44, 42, 42);
     }
-    
-    .login-form input[type="text"],
-    input[type="password"] {
+
+    form{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .form-title{
+        font-size: 18px;
+        color: #fff;
+        padding: 10px 0px;
+    }
+
+    form label{
+        font-size: 16px;
+        color: #fff;
+        padding: 20px 0px 5px;
+    }
+
+    form input,
+    form select{
         border: none;
         border-bottom: 1px solid #fff;
         background: transparent;
@@ -246,46 +218,41 @@
         color: #fff;
         font-size: 15px;
     }
-    
-    .login-form input[type="submit"] {
+
+    #signup-submitBtn,
+    #login-submitBtn,
+    #submitExpenseBtn{
         border: none;
         outline: none;
         height: 25px;
         background: #78ec7f;
         font-size: 18px;
         border-radius: 20px;
-        margin-bottom: 10px;
+        margin: 30px 0px;
         color: rgb(44, 42, 42);
     }
-    
-    .login-form input[type="submit"]:hover {
+
+    #signup-submitBtn:hover,
+    #login-submitBtn:hover,
+    #submitExpenseBtn:hover{
         cursor: pointer;
         background: #9af1a0;
         color: black;
-    }
-    
-    form a {
-        top: 100%;
-        left: 1%;
+    }    
+
+/* ERRORS */
+    #errors{
+        display: inline-flex;
+        flex-direction: row;
         position: absolute;
-        text-decoration: none;
-        color: white;
+        top: 30%;
+        left: 10%;
+        width: 300px;
     }
-    
-    form a:hover {
-        color: #9af1a0;
+    #errors li{
+        padding: 10px 0px 0px;
     }
-    
-    .pName label p {
-        display: inline-block;
-    }
-    
-    #chart_div {
-        
-        position: relative;
-        top: 5em;
-        left: 50%;
-    }
+
     /* Animation */
     
     section {
