@@ -1,9 +1,9 @@
 async function handleLogin(event) {
     event.preventDefault();
-    console.log('function triggered')
 
     const username = document.getElementById('username-login').value.trim();
     const password = document.getElementById('password-login').value.trim();
+
     const errorsEl = document.getElementById('errors');
 
     if (username && password) {
@@ -19,14 +19,11 @@ async function handleLogin(event) {
             document.location.replace('/profile');
         } else {
             const body = await response.json();
-            console.log(body)
+            errorsEl.innerHTML = "";
             let ul = document.createElement('ul');
-            body.errors.forEach((e) => {
-                console.log(e)
-                let li = document.createElement('li');
-                li.innerHTML = `${e.msg}`
-                ul.appendChild(li);
-            })
+            let li = document.createElement('li');
+            li.innerHTML = `${body.message}`
+            ul.appendChild(li);
             errorsEl.appendChild(ul);
         }
     }

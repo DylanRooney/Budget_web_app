@@ -4,13 +4,24 @@ const { check, validationResult } = require('express-validator');
 
 // SIGN UP
 router.post('/signup',
+    check('username').custom(value => {
+        return User.findOne({
+            where: {
+                username: value
+            }
+        }).then(username => {
+            if (username) {
+                return Promise.reject('Username taken')
+            }
+        })
+    }),
     check('email').custom(value => {
         return User.findOne({
             where: {
                 email: value
             }
-        }).then(user => {
-            if (user) {
+        }).then(email => {
+            if (email) {
                 return Promise.reject('Email already in use')
             }
         });
@@ -51,10 +62,6 @@ router.post('/signup',
 
 // LOG IN
 router.post('/login',
-    check('password')
-        .isLength({ min: 8 })
-        .withMessage('Password must be at least 8 characters'),
-
     async (req, res) => {
         const errors = validationResult(req);
         if (!errors.isEmpty()) {
@@ -68,12 +75,12 @@ router.post('/login',
             });
             console.log(userData);
             if (!userData) {
-                res.status(400).json({ message: 'Incorrect email or password' });
+                res.status(400).json({ message: 'Incorrect username or   password' });
                 return;
             }
             const validatePassword = await userData.checkPassword(req.body.password);
             if (!validatePassword) {
-                res.status(400).json({ message: 'Incorrect email or password' });
+                res.status(400).json({ message: 'Incorrect username or password' });
                 return;
             }
             req.session.save(() => {

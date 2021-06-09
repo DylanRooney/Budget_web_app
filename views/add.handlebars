@@ -3,10 +3,10 @@
     <div class="form-container">
         <form class="add-form">
             <h1 class="form-title">ADD AN EXPENSE</h1>
-            <label for="expense-name">Name:</label>
-            <input type="text" name="name" id="expense_name" placeholder="Expense Name">
-            <label for="amount">Amount:</label>
-            <input type="text" name="amount" id="amount" placeholder="Amount">
+            <label for="expense-name">Name of Expense:</label>
+            <input type="text" name="name" id="expense_name" placeholder="Expense" required>
+            <label for="amount" id="amount-label">Amount:</label>
+            <input type="text" name="amount" id="amount" placeholder="$" required>
             <label for="subcategory">Select a category:</label>
             <select id="subcategory">
                 {{#each subcategories as |subcategory|}}
@@ -15,6 +15,7 @@
             </select>
             <input type="submit" value="submit" name="subitExpense" id="submitExpenseBtn">
         </form>
+        <div id="errors"></div>
     </div>
     <div class="wave wave1"></div>
     <div class="wave wave2"></div>
