@@ -8,7 +8,7 @@
             <label for="amount">Amount:</label>
             <input type="text" name="amount" id="amount" placeholder="Amount">
             <label for="subcategory">Select a category:</label>
-            <select>
+            <select id="subcategory">
                 {{#each subcategories as |subcategory|}}
                 <option value="{{subcategory.id}}">{{subcategory.subcategory_name}}</option>
                 {{/each}}
