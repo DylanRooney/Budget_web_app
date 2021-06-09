@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { SubCategory } = require('../models');
+const { SubCategory, Expense, ParentCategory } = require('../models');
 
 
 router.get("/", async (req, res) => {
@@ -32,8 +32,26 @@ router.get("/profile", async (req, res) => {
 
 router.get("/expense", async (req, res) => {
     try {
-        res.render("expense", { loggedIn: req.session.loggedIn });
-    } catch {
+        const expenseData = await Expense.findAll({
+            where: {
+                user_id: req.session.user_id,
+            },
+            include: [
+                {
+                    model: SubCategory,
+                    attributes: ['id', 'subcategory_name', 'parent_category_id'],
+                    include: {
+                        model: ParentCategory,
+                        attributes: ['id', 'category_name']
+                    }
+                }
+            ],
+        })
+        console.log(expenseData)
+        const expenses = expenseData.map((expense_name) => expense_name.get({ plain: true }));
+        res.render("expense", { expenses, loggedIn: req.session.loggedIn });
+        return;
+    } catch (err) {
         res.status(500).json(err);
     }
 });
