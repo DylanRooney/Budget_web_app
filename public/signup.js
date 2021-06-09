@@ -30,7 +30,6 @@ async function handleSignup(event) {
                 ul.appendChild(li);
             })
             errorsEl.appendChild(ul);
-            // alert(response.statusText);
         }
     }
 }
