@@ -12,46 +12,45 @@
         align-items: center;
     }
     
-    #budget-logo{
+    #budget-logo {
         position: fixed;
         top: 40px;
         left: 40px;
     }
-
-    #card-container{
+    
+    #card-container {
         display: flex;
         justify-content: center;
         align-items: center;
     }
-
+    
     .profile-container,
-    .expense-container{
+    .expense-container {
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
         padding: 20px;
     }
-
-    .profile-container h1{
+    
+    .profile-container h1 {
         text-align: center;
     }
-
-    #profile-ul{
+    
+    #profile-ul {
         display: flex;
         flex-direction: column;
         padding-bottom: 20px;
     }
-
-    #profile-ul li{
+    
+    #profile-ul li {
         color: white;
         padding: 2px;
         list-style: none;
         text-align: left;
     }
     
-    
-    #logout-btn{
+    #logout-btn {
         width: 100px;
         justify-content: space-around;
         padding: 10px;
@@ -65,32 +64,31 @@
         cursor: pointer;
         transition: all 0.3s ease 0s;
         text-decoration: none;
-    } 
+    }
+    
     #logout-btn:hover {
         background-color: rgba(236, 247, 141, 0.8);
     }
-
+    
     .user-nav {
         display: flex;
         justify-content: flex-end;
         margin-top: 1rem;
     }
-
-    .user-nav li{
+    
+    .user-nav li {
         display: inline-block;
         list-style: none;
     }
-
-
-    #with-auth-nav{
+    
+    #with-auth-nav {
         width: 100vw;
         display: inline-flex;
         justify-content: center;
         flex-direction: row;
     }
-
-    #with-auth-nav li{
-
+    
+    #with-auth-nav li {
         display: inline-block;
         list-style: none;
     }
@@ -106,7 +104,7 @@
         padding: 20px 20px 0 0;
         transition: all 0.3s ease 0s;
     }
-
+    
     .li-head:hover {
         color: rgb(238, 88, 88);
     }
@@ -177,40 +175,40 @@
     .add-text {
         color: #fff;
     }
-
     /* CONSISTENT FORM STYLING */
-    .form-container{
+    
+    .form-container {
         position: absolute;
         top: 20%;
-        left: 10%;
+        left: 40%;
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
         align-items: center;
         padding: 20px;
-        width: 230px;
+        width: 300px;
         background: rgb(44, 42, 42);
     }
-
-    form{
+    
+    form {
         display: flex;
         flex-direction: column;
     }
-
-    .form-title{
+    
+    .form-title {
         font-size: 18px;
         color: #fff;
         padding: 10px 0px;
     }
-
-    form label{
+    
+    form label {
         font-size: 16px;
         color: #fff;
         padding: 20px 0px 5px;
     }
-
+    
     form input,
-    form select{
+    form select {
         border: none;
         border-bottom: 1px solid #fff;
         background: transparent;
@@ -221,10 +219,9 @@
         padding: 0px 5px;
     }
 
-
     #signup-submitBtn,
     #login-submitBtn,
-    #submitExpenseBtn{
+    #submitExpenseBtn {
         border: none;
         outline: none;
         height: 25px;
@@ -234,28 +231,31 @@
         margin: 30px 0px;
         color: rgb(44, 42, 42);
     }
-
+    
     #signup-submitBtn:hover,
     #login-submitBtn:hover,
-    #submitExpenseBtn:hover{
+    #submitExpenseBtn:hover {
         cursor: pointer;
         background: #9af1a0;
         color: black;
-    }    
-
-/* ERRORS */
-    #errors{
+    }
+    /* ERRORS */
+    
+    #errors {
         display: inline-flex;
         flex-direction: row;
     }
+
     #errors li{
         padding: 0px 25px 15px;
         list-style:none;
         color: red;
         text-align: center;
         font-weight: bold;
-    }
 
+    
+  
+    }
     /* Animation */
     
     section {
@@ -326,23 +326,114 @@
         }
     }
     
-    @media screen and (max-width: 320px) {
-        .budget {
-            font-size: 300%;
-            top: 20%;
-            left: 10%;
-            position: absolute;
+    @media screen and (max-width: 1440px) {
+        #chart_div {
+            width: 600px;
+            height: 300px;
         }
-        .budget-text {
-            font-size: 45%;
-            top: 100%;
-            left: 16%;
-            position: absolute;
+    }
+    
+    @media screen and (max-width: 1024px) {
+        #chart_div {
+            width: 450px;
+            height: 250px;
+        }
+    }
+    
+    @media screen and (max-width: 768px) {
+        .form-container {
+            left: 30%;
+        }
+        .table {
+            width: 80%;
+        }
+        #chart_div {
+            right: 10%;
+            width: 400px;
+            height: 220px;
+        }
+    }
+    
+    @media screen and (max-width: 425px) {
+        .form-container {
+            left: 15%;
+            width: 250px;
+        }
+        button {
+            width: 85px;
+            height: 25px;
         }
         .title {
-            font-size: 330%;
+            font-size: 250%;
             top: 5%;
             left: 5%;
-            position: absolute;
+        }
+        .user-nav {
+            margin-right: 1rem;
+        }
+        #chart_div {
+            width: 300px;
+            height: 230px;
+        }
+        #with-auth-nav {
+            margin-top: 10%;
+        }
+    }
+    
+    @media screen and (max-width: 375px) {
+        .form-container {
+            left: 14%;
+            width: 230px;
+        }
+        button {
+            width: 85px;
+            height: 25px;
+        }
+        .table {
+            width: 350px;
+        }
+        #with-auth-nav {
+            margin-top: 10%;
+        }
+        #chart_div {
+            width: 300px;
+            height: 230px;
+        }
+    }
+    
+    @media screen and (max-width: 345px) {
+        #with-auth-nav {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+        }
+        #with-auth-nav li {
+            display: flex;
+            list-style: none;
+            justify-content: center;
+        }
+    }
+    
+    @media screen and (max-width: 320px) {
+        .form-container {
+            left: 10%;
+            width: 200px;
+            height: 310px;
+        }
+        button {
+            width: 75px;
+            height: 25px;
+        }
+        .title {
+            font-size: 220%;
+            top: 5%;
+            left: 25%;
+        }
+        .table {
+            width: 300px;
+        }
+        #chart_div {
+            width: 200px;
+            height: 180px;
         }
     }

@@ -24,17 +24,21 @@ router.get("/signup", async (req, res) => {
 
 router.get("/profile", async (req, res) => {
     try {
-        const userData = await User.findOne({
-            where: {
-                id: req.session.user_id,
-            },
-            attributes: {
-                exclude: ['password']
-            }
-        })
-        const user = userData.get({ plain: true });
-        console.log(user)
-        res.render("profile", { user, loggedIn: req.session.loggedIn });
+        if (req.session.loggedIn) {
+            const userData = await User.findOne({
+                where: {
+                    id: req.session.user_id,
+                },
+                attributes: {
+                    exclude: ['password']
+                }
+            })
+            const user = userData.get({ plain: true });
+            console.log(user)
+            res.render("profile", { user, loggedIn: req.session.loggedIn });
+        } else {
+            res.redirect('/');
+        }
     } catch (err) {
         res.status(500).json(err);
     }
@@ -42,25 +46,29 @@ router.get("/profile", async (req, res) => {
 
 router.get("/expense", async (req, res) => {
     try {
-        const expenseData = await Expense.findAll({
-            where: {
-                user_id: req.session.user_id,
-            },
-            include: [
-                {
-                    model: SubCategory,
-                    attributes: ['id', 'subcategory_name', 'parent_category_id'],
-                    include: {
-                        model: ParentCategory,
-                        attributes: ['id', 'category_name']
+        if (req.session.loggedIn) {
+            const expenseData = await Expense.findAll({
+                where: {
+                    user_id: req.session.user_id,
+                },
+                include: [
+                    {
+                        model: SubCategory,
+                        attributes: ['id', 'subcategory_name', 'parent_category_id'],
+                        include: {
+                            model: ParentCategory,
+                            attributes: ['id', 'category_name']
+                        }
                     }
-                }
-            ],
-        })
-        console.log(expenseData)
-        const expenses = expenseData.map((expense_name) => expense_name.get({ plain: true }));
-        res.render("expense", { expenses, loggedIn: req.session.loggedIn });
-        return;
+                ],
+            })
+            console.log(expenseData)
+            const expenses = expenseData.map((expense_name) => expense_name.get({ plain: true }));
+            res.render("expense", { expenses, loggedIn: req.session.loggedIn });
+            return;
+        } else {
+            res.redirect('/');
+        }
     } catch (err) {
         res.status(500).json(err);
     }
@@ -68,12 +76,17 @@ router.get("/expense", async (req, res) => {
 
 router.get("/add", async (req, res) => {
     try {
-        const subCategoryData = await SubCategory.findAll().catch((err) => {
-            res.json(err);
-        })
-        const subcategories = subCategoryData.map((subcategory) => subcategory.get({ plain: true }));
-        console.log(subcategories)
-        res.render("add", { subcategories, loggedIn: req.session.loggedIn });
+        if (req.session.loggedIn) {
+            const subCategoryData = await SubCategory.findAll().catch((err) => {
+                res.json(err);
+            })
+            const subcategories = subCategoryData.map((subcategory) => subcategory.get({ plain: true }));
+            console.log(subcategories)
+            res.render("add", { subcategories, loggedIn: req.session.loggedIn });
+            return;
+        } else {
+            res.redirect('/');
+        }
     } catch (err) {
         res.status(500).json(err);
     }
