@@ -50,9 +50,22 @@ router.get("/profile", async (req, res) => {
                 ],
             })
             console.log(user)
-            console.log(expenseData)
+            // console.log(expenseData)
             const expenses = expenseData.map((expense_name) => expense_name.get({ plain: true }));
-            res.render("profile", { user, expenses, loggedIn: req.session.loggedIn });
+            console.log('expenses')
+            console.log(expenses)
+            let amountArr = []
+            expenses.forEach((i) => {
+                console.log(i.amount)
+                amountArr.push(i.amount)
+            })
+            console.log(amountArr)
+            function sumAmount(total, num) {
+                return total + num;
+            }
+            totalSpent = amountArr.reduce(sumAmount)
+            console.log(totalSpent)
+            res.render("profile", { user, totalSpent, expenses, loggedIn: req.session.loggedIn });
         } else {
             res.redirect('/');
         }
