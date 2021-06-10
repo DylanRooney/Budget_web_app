@@ -56,6 +56,7 @@ router.get("/profile", async (req, res) => {
             console.log(parentcategories)
 
             console.log(user)
+
             const expenses = expenseData.map((expense_name) => expense_name.get({ plain: true }));
             console.log('expenses')
             console.log(expenses)
@@ -64,15 +65,23 @@ router.get("/profile", async (req, res) => {
                 console.log(i.amount)
                 amountArr.push(i.amount)
             })
+            console.log('amount array:')
             console.log(amountArr)
-            function sumAmount(total, num) {
-                return total + num;
+            let totalSpent
+            if (amountArr.length == 0) {
+                totalSpent = 0
+            } else {
+                function sumAmount(total, num) {
+                    return total + num;
+                }
+                totalSpent = amountArr.reduce(sumAmount)
             }
-            totalSpent = amountArr.reduce(sumAmount)
-            console.log(totalSpent)
-            res.render("profile", { user, totalSpent, parentcategories, expenses, loggedIn: req.session.loggedIn });
+            console.log(`total spent: ${totalSpent}`)
+
+            res.render("profile", { user, parentcategories, totalSpent, loggedIn: req.session.loggedIn });
         } else {
             res.redirect('/');
+
         }
     } catch (err) {
         res.status(500).json(err);
