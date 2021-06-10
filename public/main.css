@@ -182,7 +182,7 @@
         display: flex;
         position: absolute;
         top: 25%;
-        left: 12%;
+        left: 40%;
         flex-direction: column;
         justify-content: flex-start;
         align-items: center;
@@ -219,7 +219,7 @@
         font-size: 15px;
         padding: 0px 5px;
     }
-
+    
     #signup-submitBtn,
     #login-submitBtn,
     #submitExpenseBtn {
@@ -246,48 +246,48 @@
         display: inline-flex;
         flex-direction: row;
     }
-
-    #errors li{
+    
+    #errors li {
         padding: 0px 25px 15px;
-        list-style:none;
+        list-style: none;
         color: red;
         text-align: center;
         font-weight: bold;
     }
-
-/* VIEW EXPENSES */
-
-    #grid-container{
+    /* VIEW EXPENSES */
+    
+    #grid-container {
         display: grid;
         grid-template-columns: auto auto auto auto auto;
         grid-column-gap: 2.5em;
         grid-row-gap: 1em;
     }
-
-    #grid-container h3{
+    
+    #grid-container h3 {
         color: white;
         text-transform: uppercase;
         font-size: 90%;
-
+        text-align: center;
     }
-
-    #grid-container p{
+    
+    #grid-container p {
         color: white;
+        text-align: center;
     }
-
-    #no-expenses{
+    
+    #no-expenses {
         text-align: center;
         color: white;
         text-transform: uppercase;
         font-size: 90%;
     }
-
-    .center{
+    
+    .center {
         text-align: center;
         align-self: center;
     }
-
-    .delete-btn{
+    
+    .delete-btn {
         cursor: pointer;
     }
     /* Animation */
@@ -388,7 +388,17 @@
         }
     }
     
-    @media screen and (max-width: 425px) {
+    @media screen and (max-width: 630px) {
+        #grid-container {
+            grid-column-gap: 1em;
+            grid-row-gap: 0.5em;
+        }
+        #grid-container h3 {
+            font-size: 70%;
+        }
+    }
+    
+    @media screen and (max-width: 435px) {
         .form-container {
             left: 15%;
             width: 250px;
@@ -411,6 +421,13 @@
         }
         #with-auth-nav {
             margin-top: 10%;
+        }
+        #grid-container {
+            grid-column-gap: 0.5em;
+            grid-row-gap: 0.5em;
+        }
+        #grid-container h3 {
+            font-size: 65%;
         }
     }
     
