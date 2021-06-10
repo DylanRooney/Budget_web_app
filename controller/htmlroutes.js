@@ -62,9 +62,20 @@ router.get("/expense", async (req, res) => {
                     }
                 ],
             })
+            const userData = await User.findOne({
+                where: {
+                    id: req.session.user_id,
+                },
+                attributes: {
+                    exclude: ['password']
+                }
+            })
+            const user = userData.get({ plain: true });
+            console.log(user)
             console.log(expenseData)
             const expenses = expenseData.map((expense_name) => expense_name.get({ plain: true }));
-            res.render("expense", { expenses, loggedIn: req.session.loggedIn });
+            let hasExpenses
+            res.render("expense", { user, expenses, loggedIn: req.session.loggedIn });
             return;
         } else {
             res.redirect('/');

@@ -47,7 +47,7 @@
         color: white;
         padding: 2px;
         list-style: none;
-        text-align: left;
+        text-align: center;
     }
     
     #logout-btn {
@@ -156,16 +156,17 @@
     
     .table {
         display: flex;
+        flex-direction: column;
         flex-wrap: wrap;
-        width: 50%;
+        width: 700px;
         padding-top: 20px;
         padding-bottom: 50px;
         background: rgb(44, 42, 42);
         top: 25%;
         box-sizing: border-box;
         position: absolute;
-        align-items: flex-start;
-        justify-content: center;
+        align-items: center;
+        justify-content: flex-start;
     }
     
     .table label {
@@ -178,10 +179,10 @@
     /* CONSISTENT FORM STYLING */
     
     .form-container {
-        position: absolute;
-        top: 20%;
-        left: 40%;
         display: flex;
+        position: absolute;
+        top: 25%;
+        left: 12%;
         flex-direction: column;
         justify-content: flex-start;
         align-items: center;
@@ -252,9 +253,42 @@
         color: red;
         text-align: center;
         font-weight: bold;
+    }
 
-    
-  
+/* VIEW EXPENSES */
+
+    #grid-container{
+        display: grid;
+        grid-template-columns: auto auto auto auto auto;
+        grid-column-gap: 2.5em;
+        grid-row-gap: 1em;
+    }
+
+    #grid-container h3{
+        color: white;
+        text-transform: uppercase;
+        font-size: 90%;
+
+    }
+
+    #grid-container p{
+        color: white;
+    }
+
+    #no-expenses{
+        text-align: center;
+        color: white;
+        text-transform: uppercase;
+        font-size: 90%;
+    }
+
+    .center{
+        text-align: center;
+        align-self: center;
+    }
+
+    .delete-btn{
+        cursor: pointer;
     }
     /* Animation */
     
@@ -328,7 +362,7 @@
     
     @media screen and (max-width: 1440px) {
         #chart_div {
-            width: 600px;
+            width: 500px;
             height: 300px;
         }
     }
