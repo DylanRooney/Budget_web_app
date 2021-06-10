@@ -44,10 +44,11 @@ router.post('/expense',
 
 router.delete('/expense/:id', async (req, res) => {
     try {
+        console.log('req.body')
+        console.log(req.body)
         const expensedata = await Expense.destroy({
             where: {
-                id: req.params.id,
-                //might need user_id
+                id: req.body.expense_id
             }
         })
         if (!expensedata) {

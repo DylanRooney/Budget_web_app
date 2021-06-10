@@ -13,7 +13,7 @@
             </ul>
             {{!-- <div id="chart_div"></div> --}}
         </div>
-        {{#if hasExpenses}}
+        {{!-- {{#if hasExpenses}} --}}
         <div id="grid-container">
             <div class="grid-item">
                 <h3>Expense</h3>
@@ -44,70 +44,20 @@
                 <p>{{format_date expense.createdAt}}</p>
             </div>
             <div class="grid-item center">
-                <p>&#10005;</p>
+                <p class="delete-btn" id="{{expense.id}}">&#10005;</p>
             </div>
             {{/each}}
         </div>
 
-        {{else}}
+        {{!-- {{else}}
         <h3 id="no-expenses">
             You have no expenses
         </h3>
-        {{/if}}
+        {{/if}} --}}
     </div>
     <div class="wave wave1"></div>
     <div class="wave wave2"></div>
     <div class="wave wave3"></div>
     <div class="wave wave4"></div>
 </section>
-
-
-
-{{!--
-<script type="text/javascript" charset="utf-8">
-    // specify the columns
-    const columnDefs = [{
-        field: "Date", sortable: true
-    }, {
-        field: "Expense", sortable: true
-    }, {
-        field: "Amount", sortable: true
-    }, {
-        field: "Subcategory", sortable: true
-    }, {
-        field: "Total", sortable: true
-    }];
-
-    // specify the data
-    const rowData = [{
-        Date: "01/5",
-        Expense: 'petrol',
-        Amount: '80',
-        Subcategory: 'Transport',
-        Total: 35000
-    }, {
-        Date: "01/5",
-        Expense: 'petrol',
-        Amount: '80',
-        Subcategory: 'Transport',
-        Total: 35000
-    }, {
-        Date: "01/5",
-        Expense: 'petrol',
-        Amount: '80',
-        Subcategory: 'Transport',
-        Total: 35000
-    }];
-
-    // let the grid know which columns and what data to use
-    const gridOptions = {
-        columnDefs: columnDefs,
-        rowData: rowData
-    };
-
-    // lookup the container we want the Grid to use
-    const eGridDiv = document.querySelector('#myGrid');
-
-    // create the grid passing in the div to use together with the columns & data we want to use
-    new agGrid.Grid(eGridDiv, gridOptions);
-</script> --}}
+<script src="/delete.js"></script>

@@ -287,6 +287,9 @@
         align-self: center;
     }
 
+    .delete-btn{
+        cursor: pointer;
+    }
     /* Animation */
     
     section {
