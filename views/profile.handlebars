@@ -23,9 +23,9 @@
         <form id="viewCategory">
             <label for="category">View total for:</label>
             <select id="category">
-                {{#each expenses as |expense|}}
-                <option value="{{expense.subCategory.parentCategory.id}}">
-                    {{expense.subCategory.parentCategory.category_name}}</option>
+                {{#each parentcategories as |category|}}
+                <option value="{{category.id}}">
+                    {{category.category_name}}</option>
                 {{/each}}
             </select>
             <input type="submit" value="submit" name="submitCategory" id="submitCategoryBtn">

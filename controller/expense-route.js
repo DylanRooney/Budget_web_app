@@ -79,32 +79,21 @@ router.post('/category', async (req, res) => {
             ],
         })
         const expenses = expenseData.map((expense_name) => expense_name.get({ plain: true }));
-        console.log('expenses')
-        console.log(expenses)
         let amountArr = []
         expenses.forEach((i) => {
-            // console.log('iiiiiiiii')
-            // console.log(i)
-            // console.log(i.subCategory.parent_category_id)
-            // console.log(req.body.category_id)
             thisId = i.subCategory.parent_category_id.toString();
-            console.log(thisId);
             reqId = req.body.category_id.toString();
-            console.log(reqId)
 
             if (thisId === reqId) {
                 console.log(true)
                 amountArr.push(i.amount)
             }
         })
-        console.log(amountArr)
         function sumAmount(total, num) {
             return total + num;
         }
-        totalSpent = amountArr.reduce(sumAmount)
-        console.log(totalSpent)
-        res.status(200).json({ totalSpent })
-        // res.render("profile", { user, totalSpent, expenses, loggedIn: req.session.loggedIn });
+        totalSpent = amountArr.reduce(sumAmount);
+        res.status(200).json({ totalSpent });
     } catch (err) {
         console.log(err)
         res.status(500).json(err)

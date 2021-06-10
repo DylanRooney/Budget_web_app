@@ -49,6 +49,12 @@ router.get("/profile", async (req, res) => {
                     }
                 ],
             })
+            const parentCategoryData = await ParentCategory.findAll().catch((err) => {
+                res.json(err);
+            })
+            const parentcategories = parentCategoryData.map((parentcategory) => parentcategory.get({ plain: true }));
+            console.log(parentcategories)
+
             console.log(user)
             const expenses = expenseData.map((expense_name) => expense_name.get({ plain: true }));
             console.log('expenses')
@@ -64,7 +70,7 @@ router.get("/profile", async (req, res) => {
             }
             totalSpent = amountArr.reduce(sumAmount)
             console.log(totalSpent)
-            res.render("profile", { user, totalSpent, expenses, loggedIn: req.session.loggedIn });
+            res.render("profile", { user, totalSpent, parentcategories, expenses, loggedIn: req.session.loggedIn });
         } else {
             res.redirect('/');
         }
