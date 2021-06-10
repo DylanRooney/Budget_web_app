@@ -15,6 +15,21 @@
                 <div id="chart_div"></div>
 
         </div>
+
+        <div id="grid-container-profile">
+            <div class="grid-item">
+                <h3>Category</h3>
+            </div>
+            {{#each expenses as |expense|}}
+            <div class="grid-item">
+                <p>{{expense.subCategory.parentCategory.category_name}}</p>
+            </div>
+            {{/each}}
+        </div>
+
+    </div>
+
+
     </div>
     <div class="wave wave1"></div>
     <div class="wave wave2"></div>

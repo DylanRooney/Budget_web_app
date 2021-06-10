@@ -34,8 +34,25 @@ router.get("/profile", async (req, res) => {
                 }
             })
             const user = userData.get({ plain: true });
+            const expenseData = await Expense.findAll({
+                where: {
+                    user_id: req.session.user_id,
+                },
+                include: [
+                    {
+                        model: SubCategory,
+                        attributes: ['id', 'subcategory_name', 'parent_category_id'],
+                        include: {
+                            model: ParentCategory,
+                            attributes: ['id', 'category_name']
+                        }
+                    }
+                ],
+            })
             console.log(user)
-            res.render("profile", { user, loggedIn: req.session.loggedIn });
+            console.log(expenseData)
+            const expenses = expenseData.map((expense_name) => expense_name.get({ plain: true }));
+            res.render("profile", { user, expenses, loggedIn: req.session.loggedIn });
         } else {
             res.redirect('/');
         }
