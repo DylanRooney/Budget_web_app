@@ -266,11 +266,17 @@
         grid-row-gap: 1em;
         color: white;
         text-transform: uppercase;
-        font-size: 90%;
+    }
+
+    #grid-container-profile h2{
+        padding-top: 10px;
+        text-align: center;
     }
     
     #renderCategoryTotal {
         color: white;
+        text-align: center;
+        padding-top: 10px;
     }
     /* VIEW EXPENSES */
     

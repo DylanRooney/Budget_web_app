@@ -16,7 +16,8 @@
 
         <div id="grid-container-profile">
             <div class="grid-item">
-                <h2>Total Spent: ${{totalSpent}}</h2>
+                <h4>Total Spent:</h4>
+                <h2>${{totalSpent}}</h2>
             </div>
         </div>
         <form id="viewCategory">
@@ -27,9 +28,9 @@
                     {{category.category_name}}</option>
                 {{/each}}
             </select>
+            <div id="renderCategoryTotal"></div>
             <input type="submit" value="submit" name="submitCategory" id="submitCategoryBtn">
         </form>
-        <div id="renderCategoryTotal"></div>
 
     </div>
 
