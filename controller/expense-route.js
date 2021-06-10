@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Expense } = require('../models');
+const { Expense, ParentCategory, SubCategory } = require('../models');
 const { check, validationResult } = require('express-validator');
 
 router.get('/expense/:id', async (req, res) => {
@@ -18,8 +18,8 @@ router.get('/expense/:id', async (req, res) => {
         console.log(err)
         res.status(500).json(err)
     }
-}
-)
+})
+
 router.post('/expense',
     check('amount').isNumeric().withMessage('Amount can only contain numbers'),
     async (req, res) => {
@@ -60,6 +60,57 @@ router.delete('/expense/:id', async (req, res) => {
         res.status(500).json(err)
     }
 })
+
+router.post('/category', async (req, res) => {
+    try {
+        const expenseData = await Expense.findAll({
+            where: {
+                user_id: req.session.user_id,
+            },
+            include: [
+                {
+                    model: SubCategory,
+                    attributes: ['id', 'subcategory_name', 'parent_category_id'],
+                    include: {
+                        model: ParentCategory,
+                        attributes: ['id', 'category_name']
+                    }
+                }
+            ],
+        })
+        const expenses = expenseData.map((expense_name) => expense_name.get({ plain: true }));
+        console.log('expenses')
+        console.log(expenses)
+        let amountArr = []
+        expenses.forEach((i) => {
+            // console.log('iiiiiiiii')
+            // console.log(i)
+            // console.log(i.subCategory.parent_category_id)
+            // console.log(req.body.category_id)
+            thisId = i.subCategory.parent_category_id.toString();
+            console.log(thisId);
+            reqId = req.body.category_id.toString();
+            console.log(reqId)
+
+            if (thisId === reqId) {
+                console.log(true)
+                amountArr.push(i.amount)
+            }
+        })
+        console.log(amountArr)
+        function sumAmount(total, num) {
+            return total + num;
+        }
+        totalSpent = amountArr.reduce(sumAmount)
+        console.log(totalSpent)
+        res.status(200).json({ totalSpent })
+        // res.render("profile", { user, totalSpent, expenses, loggedIn: req.session.loggedIn });
+    } catch (err) {
+        console.log(err)
+        res.status(500).json(err)
+    }
+})
+
 
 
 module.exports = router

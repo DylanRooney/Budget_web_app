@@ -50,7 +50,6 @@ router.get("/profile", async (req, res) => {
                 ],
             })
             console.log(user)
-            // console.log(expenseData)
             const expenses = expenseData.map((expense_name) => expense_name.get({ plain: true }));
             console.log('expenses')
             console.log(expenses)

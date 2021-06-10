@@ -171,6 +171,7 @@
     
     .table label {
         color: #fff;
+        text-align: center;
     }
     
     .add-text {
@@ -222,7 +223,8 @@
 
     #signup-submitBtn,
     #login-submitBtn,
-    #submitExpenseBtn {
+    #submitExpenseBtn,
+    #submitCategoryBtn {
         border: none;
         outline: none;
         height: 25px;
@@ -264,6 +266,10 @@
     color: white;
     text-transform: uppercase;
     font-size: 90%;
+}
+
+#renderCategoryTotal{
+    color: white;
 }
 
 /* VIEW EXPENSES */

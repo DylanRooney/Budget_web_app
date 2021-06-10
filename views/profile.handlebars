@@ -12,19 +12,25 @@
                         <strong>Email: </strong>{{user.email}}
                     </li>
                 </ul>
-                <div id="chart_div"></div>
+                {{!-- <div id="chart_div"></div> --}}
         </div>
 
         <div id="grid-container-profile">
             <div class="grid-item">
                 <h2>Total Spent: ${{totalSpent}}</h2>
             </div>
-            {{#each expenses as |expense|}}
-            <div class="grid-item">
-                <p>{{expense.subCategory.parentCategory.category_name}}</p>
-            </div>
-            {{/each}}
         </div>
+        <form id="viewCategory">
+            <label for="category">View total for:</label>
+            <select id="category">
+                {{#each expenses as |expense|}}
+                <option value="{{expense.subCategory.parentCategory.id}}">
+                    {{expense.subCategory.parentCategory.category_name}}</option>
+                {{/each}}
+            </select>
+            <input type="submit" value="submit" name="submitCategory" id="submitCategoryBtn">
+        </form>
+        <div id="renderCategoryTotal"></div>
 
     </div>
 
@@ -35,6 +41,7 @@
     <div class="wave wave3"></div>
     <div class="wave wave4"></div>
 </section>
+<script src="/category.js"></script>
 {{!--
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <script type="text/javascript">
