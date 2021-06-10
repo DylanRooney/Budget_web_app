@@ -158,7 +158,7 @@
         display: flex;
         flex-direction: column;
         flex-wrap: wrap;
-        width: 50%;
+        width: 700px;
         padding-top: 20px;
         padding-bottom: 50px;
         background: rgb(44, 42, 42);
@@ -179,10 +179,10 @@
     /* CONSISTENT FORM STYLING */
     
     .form-container {
-        position: absolute;
-        top: 20%;
-        left: 40%;
         display: flex;
+        position: absolute;
+        top: 25%;
+        left: 12%;
         flex-direction: column;
         justify-content: flex-start;
         align-items: center;
@@ -268,13 +268,18 @@
         color: white;
         text-transform: uppercase;
         font-size: 90%;
+
     }
 
     #grid-container p{
         color: white;
     }
 
-    .grid-item{
+    #no-expenses{
+        text-align: center;
+        color: white;
+        text-transform: uppercase;
+        font-size: 90%;
     }
 
     .center{

@@ -74,7 +74,15 @@ router.get("/expense", async (req, res) => {
             console.log(user)
             console.log(expenseData)
             const expenses = expenseData.map((expense_name) => expense_name.get({ plain: true }));
-            res.render("expense", { user, expenses, loggedIn: req.session.loggedIn });
+            let hasExpenses
+            console.log(expenses)
+            if (expenses.length > 2) {
+                hasExpenses = true;
+            } else {
+                hasExpenses = false;
+            }
+            console.log(hasExpenses)
+            res.render("expense", { user, expenses, hasExpenses, loggedIn: req.session.loggedIn });
             return;
         } else {
             res.redirect('/');
