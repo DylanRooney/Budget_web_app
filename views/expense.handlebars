@@ -1,106 +1,106 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../public/main.css">
-    <script src="https://unpkg.com/ag-grid-community/dist/ag-grid-community.min.noStyle.js"></script>
-    <link rel="stylesheet" href="https://unpkg.com/ag-grid-community/dist/styles/ag-grid.css">
-    <link rel="stylesheet" href="https://unpkg.com/ag-grid-community/dist/styles/ag-theme-alpine-dark.css">
-    <title>Login</title>
-</head>
-
-<body>
-    <h2 id="budget-logo">Budgét</h2>
-    <div>
-        {{#each expenses as |expense|}}
-        <ul>
-            <li>
-                Expense name: {{expense.expense_name}}
-            </li>
-            <li>
-                Amount: ${{expense.amount}}
-            </li>
-            <li>
-                Spending category: {{expense.subCategory.subcategory_name}}
-            </li>
-            <li>
-                Date: {{format_date expense.createdAt}}
-            </li>
-        </ul>
-        {{/each}}
-        <br>
-    </div>
-    <section>
-        <div class="table">
-            <div class="expense-container">
-                <div class="add-title">
-                    <h1 class="add-text">VIEW EXPENSE</h1>
-                </div>
-                <div class="list-view">
-                    <div id="myGrid" class="ag-theme-alpine-dark" style="height: 200px; width:602px;"></div>
-                </div>
-
-
-
-
-                <script type="text/javascript" charset="utf-8">
-                    // specify the columns
-                    const columnDefs = [{
-                        field: "Date", sortable: true
-                    }, {
-                        field: "Expense", sortable: true
-                    }, {
-                        field: "Amount", sortable: true
-                    }, {
-                        field: "Subcategory", sortable: true
-                    }, {
-                        field: "Total", sortable: true
-                    }];
-
-                    // specify the data
-                    const rowData = [{
-                        Date: "01/5",
-                        Expense: 'petrol',
-                        Amount: '80',
-                        Subcategory: 'Transport',
-                        Total: 35000
-                    }, {
-                        Date: "01/5",
-                        Expense: 'petrol',
-                        Amount: '80',
-                        Subcategory: 'Transport',
-                        Total: 35000
-                    }, {
-                        Date: "01/5",
-                        Expense: 'petrol',
-                        Amount: '80',
-                        Subcategory: 'Transport',
-                        Total: 35000
-                    }];
-
-                    // let the grid know which columns and what data to use
-                    const gridOptions = {
-                        columnDefs: columnDefs,
-                        rowData: rowData
-                    };
-
-                    // lookup the container we want the Grid to use
-                    const eGridDiv = document.querySelector('#myGrid');
-
-                    // create the grid passing in the div to use together with the columns & data we want to use
-                    new agGrid.Grid(eGridDiv, gridOptions);
-                </script>
-            </div>
+<h2 id="budget-logo">Budgét</h2>
+<section id="card-container">
+    <div class="table expenses">
+        <div class="profile-container">
+            <h1 class="form-title">YOUR EXPENSES</h1>
+            <ul id="profile-ul">
+                <li>
+                    <strong>Username: </strong>{{user.username}}
+                </li>
+                <li>
+                    <strong>Email: </strong>{{user.email}}
+                </li>
+            </ul>
+            {{!-- <div id="chart_div"></div> --}}
         </div>
-        <div class="wave wave1"></div>
-        <div class="wave wave2"></div>
-        <div class="wave wave3"></div>
-        <div class="wave wave4"></div>
-    </section>
+        <div id="grid-container">
+            <div class="grid-item">
+                <h3>Expense</h3>
+            </div>
+            <div class="grid-item">
+                <h3>Amount</h3>
+            </div>
+            <div class="grid-item">
+                <h3>Category</h3>
+            </div>
+            <div class="grid-item">
+                <h3>Date</h3>
+            </div>
+            <div class="grid-item">
+                <h3>Delete</h3>
+            </div>
+            {{#each expenses as |expense|}}
+            <div class="grid-item">
+                <p>{{expense.expense_name}}</p>
+            </div>
+            <div class="grid-item">
+                <p>${{expense.amount}}</p>
+            </div>
+            <div class="grid-item">
+                <p>{{expense.subCategory.subcategory_name}}</p>
+            </div>
+            <div class="grid-item">
+                <p>{{format_date expense.createdAt}}</p>
+            </div>
+            <div class="grid-item center">
+                <p>&#10005;</p>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+    <div class="wave wave1"></div>
+    <div class="wave wave2"></div>
+    <div class="wave wave3"></div>
+    <div class="wave wave4"></div>
+</section>
 
-</body>
 
-</html>
+
+{{!--
+<script type="text/javascript" charset="utf-8">
+    // specify the columns
+    const columnDefs = [{
+        field: "Date", sortable: true
+    }, {
+        field: "Expense", sortable: true
+    }, {
+        field: "Amount", sortable: true
+    }, {
+        field: "Subcategory", sortable: true
+    }, {
+        field: "Total", sortable: true
+    }];
+
+    // specify the data
+    const rowData = [{
+        Date: "01/5",
+        Expense: 'petrol',
+        Amount: '80',
+        Subcategory: 'Transport',
+        Total: 35000
+    }, {
+        Date: "01/5",
+        Expense: 'petrol',
+        Amount: '80',
+        Subcategory: 'Transport',
+        Total: 35000
+    }, {
+        Date: "01/5",
+        Expense: 'petrol',
+        Amount: '80',
+        Subcategory: 'Transport',
+        Total: 35000
+    }];
+
+    // let the grid know which columns and what data to use
+    const gridOptions = {
+        columnDefs: columnDefs,
+        rowData: rowData
+    };
+
+    // lookup the container we want the Grid to use
+    const eGridDiv = document.querySelector('#myGrid');
+
+    // create the grid passing in the div to use together with the columns & data we want to use
+    new agGrid.Grid(eGridDiv, gridOptions);
+</script> --}}

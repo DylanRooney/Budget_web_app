@@ -47,7 +47,7 @@
         color: white;
         padding: 2px;
         list-style: none;
-        text-align: left;
+        text-align: center;
     }
     
     #logout-btn {
@@ -156,6 +156,7 @@
     
     .table {
         display: flex;
+        flex-direction: column;
         flex-wrap: wrap;
         width: 50%;
         padding-top: 20px;
@@ -164,8 +165,8 @@
         top: 25%;
         box-sizing: border-box;
         position: absolute;
-        align-items: flex-start;
-        justify-content: center;
+        align-items: center;
+        justify-content: flex-start;
     }
     
     .table label {
@@ -252,10 +253,35 @@
         color: red;
         text-align: center;
         font-weight: bold;
-
-    
-  
     }
+
+/* VIEW EXPENSES */
+
+    #grid-container{
+        display: grid;
+        grid-template-columns: auto auto auto auto auto;
+        grid-column-gap: 2.5em;
+        grid-row-gap: 1em;
+    }
+
+    #grid-container h3{
+        color: white;
+        text-transform: uppercase;
+        font-size: 90%;
+    }
+
+    #grid-container p{
+        color: white;
+    }
+
+    .grid-item{
+    }
+
+    .center{
+        text-align: center;
+        align-self: center;
+    }
+
     /* Animation */
     
     section {
@@ -328,7 +354,7 @@
     
     @media screen and (max-width: 1440px) {
         #chart_div {
-            width: 600px;
+            width: 500px;
             height: 300px;
         }
     }
