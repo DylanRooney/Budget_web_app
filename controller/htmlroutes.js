@@ -34,8 +34,37 @@ router.get("/profile", async (req, res) => {
                 }
             })
             const user = userData.get({ plain: true });
+            const expenseData = await Expense.findAll({
+                where: {
+                    user_id: req.session.user_id,
+                },
+                include: [
+                    {
+                        model: SubCategory,
+                        attributes: ['id', 'subcategory_name', 'parent_category_id'],
+                        include: {
+                            model: ParentCategory,
+                            attributes: ['id', 'category_name']
+                        }
+                    }
+                ],
+            })
             console.log(user)
-            res.render("profile", { user, loggedIn: req.session.loggedIn });
+            const expenses = expenseData.map((expense_name) => expense_name.get({ plain: true }));
+            console.log('expenses')
+            console.log(expenses)
+            let amountArr = []
+            expenses.forEach((i) => {
+                console.log(i.amount)
+                amountArr.push(i.amount)
+            })
+            console.log(amountArr)
+            function sumAmount(total, num) {
+                return total + num;
+            }
+            totalSpent = amountArr.reduce(sumAmount)
+            console.log(totalSpent)
+            res.render("profile", { user, totalSpent, expenses, loggedIn: req.session.loggedIn });
         } else {
             res.redirect('/');
         }
