@@ -21,7 +21,9 @@ async function handleViewCategory(event) {
             totalEl.appendChild(h3);
         } else {
             totalEl.innerHTML = ""
-            alert(response.statusText);
+            let h3 = document.createElement('h3');
+            h3.innerHTML = `$0`
+            totalEl.appendChild(h3);
         }
     }
 }
