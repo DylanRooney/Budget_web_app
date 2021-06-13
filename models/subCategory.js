@@ -5,7 +5,7 @@ class SubCategory extends Model {}
 
 SubCategory.init(
   {
-    ID: {
+    id: {
       type: DataTypes.INTEGER,
       ALLOWNULL: false,
       PRIMARYKEY: true,
