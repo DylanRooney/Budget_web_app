@@ -7,8 +7,8 @@ ParentCategory.init(
   {
     id: {
       type: DataTypes.INTEGER,
-      ALLOWNULL: false,
       PRIMARYKEY: true,
+      ALLOWNULL: false,
       AUTOINCREMENT: true,
     },
     category_name: {
