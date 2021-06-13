@@ -12,27 +12,27 @@ User.init(
   {
     id: {
       type: DataTypes.INTEGER,
-      ALLOWNULL: false,
-      PRIMARYKEY: true,
-      AUTOINCREMENT: true,
+      allowNull: false,
+      primaryKey: true,
+      autoIncrement: true,
     },
     username: {
       type: DataTypes.STRING,
-      ALLOWNULL: false,
+      allowNull: false,
     },
     email: {
       type: DataTypes.STRING,
-      ALLOWNULL: false,
-      UNIQUE: true,
-      VALIDATE: {
-        ISEMAIL: true,
+      allowNull: false,
+      unique: true,
+      validate: {
+        isEmail: true,
       },
     },
     password: {
       type: DataTypes.STRING,
-      ALLOWNULL: false,
-      VALIDATE: {
-        LEN: [8],
+      allowNull: false,
+      validate: {
+        len: [8],
       },
     },
   },

@@ -7,41 +7,41 @@ Expense.init(
   {
     id: {
       type: DataTypes.INTEGER,
-      ALLOWNULL: false,
-      PRIMARYKEY: true,
-      AUTOINCREMENT: true,
+      allowNull: false,
+      primaryKey: true,
+      autoIncrement: true,
     },
     expense_name: {
       type: DataTypes.STRING,
-      ALLOWNULL: false,
+      allowNull: false,
     },
     amount: {
       type: DataTypes.INTEGER,
-      ALLOWNULL: false,
+      allowNull: false,
     },
     sub_category_id: {
       type: DataTypes.INTEGER,
-      ALLOWNULL: false,
-      REFERNCES: {
-        MODEL: "subCategory",
-        KEY: "id",
+      allowNull: false,
+      references: {
+        model: "subCategory",
+        key: "id",
       },
     },
     user_id: {
       type: DataTypes.INTEGER,
-      ALLOWNULL: false,
-      REFERENCES: {
-        MODEL: "user",
-        KEY: "id",
+      allowNull: false,
+      references: {
+        model: "user",
+        key: "id",
       },
     },
   },
   {
     sequelize,
     // timestamps: false,
-    FREEZETABLEFRAME: true,
-    UNDERSCORED: true,
-    MODELNAME: "expense",
+    freezeTableName: true,
+    underscored: true,
+    modelName: "expense",
   }
 );
 

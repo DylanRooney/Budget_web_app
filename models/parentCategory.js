@@ -7,21 +7,21 @@ ParentCategory.init(
   {
     id: {
       type: DataTypes.INTEGER,
-      PRIMARYKEY: true,
-      ALLOWNULL: false,
-      AUTOINCREMENT: true,
+      primaryKey: true,
+      allowNull: false,
+      autoIncrement: true,
     },
     category_name: {
       type: DataTypes.STRING,
-      ALLOWNULL: false,
+      allowNull: false,
     },
   },
   {
     sequelize,
-    TIMESTAMPS: false,
-    FREEZETABLENAME: true,
-    UNDERSCORED: true,
-    MODELNAME: "parentCategory",
+    timestamps: false,
+    freezeTableName: true,
+    Underscored: true,
+    modelName: "parentCategory",
   }
 );
 

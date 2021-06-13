@@ -7,29 +7,29 @@ SubCategory.init(
   {
     id: {
       type: DataTypes.INTEGER,
-      ALLOWNULL: false,
-      PRIMARYKEY: true,
-      AUTOINCREMENT: true,
+      allowNull: false,
+      primaryKey: true,
+      autoIncrement: true,
     },
     subcategory_name: {
       type: DataTypes.STRING,
-      ALLOWNULL: false,
+      allowNull: false,
     },
     parent_category_id: {
       type: DataTypes.INTEGER,
-      ALLOWNULL: false,
-      REFERENCES: {
-        MODEL: "parentCategory",
-        KEY: "id",
+      allowNull: false,
+      references: {
+        model: "parentCategory",
+        key: "id",
       },
     },
   },
   {
     sequelize,
-    TIMESTAMPS: false,
-    FREEZETABLENAME: true,
-    UNDERSCORED: true,
-    MODELNAME: "subCategory",
+    timestamps: false,
+    freezeTableName: true,
+    underscored: true,
+    modelName: "subCategory",
   }
 );
 
