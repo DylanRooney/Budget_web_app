@@ -1,6 +1,5 @@
 const path = require("path");
 const Sequelize = require("sequelize");
-const mysql = require("mysql");
 require("dotenv").config({ path: path.join(__dirname, "../.env") });
 
 const sequelize = new Sequelize(
