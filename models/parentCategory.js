@@ -1,28 +1,28 @@
-const { Model, DataTypes } = require('sequelize');
-const sequelize = require('../config/connection');
+const { Model, DataTypes } = require("sequelize");
+const sequelize = require("../config/connection");
 
-class ParentCategory extends Model { }
+class ParentCategory extends Model {}
 
 ParentCategory.init(
-    {
-        id: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-            primaryKey: true,
-            autoIncrement: true,
-        },
-        category_name: {
-            type: DataTypes.STRING,
-            allowNull: false,
-        },
+  {
+    id: {
+      type: DataTypes.INTEGER,
+      ALLOWNULL: false,
+      PRIMARYKEY: true,
+      AUTOINCREMENT: true,
     },
-    {
-        sequelize,
-        timestamps: false,
-        freezeTableName: true,
-        underscored: true,
-        modelName: 'parentCategory',
-    }
+    category_name: {
+      type: DataTypes.STRING,
+      ALLOWNULL: false,
+    },
+  },
+  {
+    sequelize,
+    TIMESTAMPS: false,
+    FREEZETABLENAME: true,
+    UNDERSCORED: true,
+    MODELNAME: "parentCategory",
+  }
 );
 
 module.exports = ParentCategory;
