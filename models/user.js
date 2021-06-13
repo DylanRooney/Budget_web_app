@@ -37,17 +37,17 @@ User.init(
     },
   },
   {
-    HOOKS: {
+    hooks: {
       async beforeCreate(newUser) {
         newUser.password = await bcrypt.hash(newUser.password, 10);
         return newUser;
       },
     },
     sequelize,
-    TIMESTAMPS: false,
-    FREEZETABLENAME: true,
-    UNDERSCORE: true,
-    MODELNAME: "user",
+    timestamps: false,
+    freezeTableName: true,
+    underscored: true,
+    modelName: "user",
   }
 );
 
